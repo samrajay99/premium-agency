@@ -1,0 +1,5 @@
+import { SiteShell } from "@/components/layout/SiteShell";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { createMetadata } from "@/lib/seo";
+export const metadata = createMetadata({ title: "Terms", description: "Terms for using the fictional Hyderabad Elite Directory demonstration website.", pathname: "/terms" });
+export default function TermsPage() { return <SiteShell><Breadcrumbs items={[{ name: "Terms", href: "/terms" }]} /><p className="eyebrow">Legal information</p><h1 className="display-title">Terms of use</h1><div className="prose-copy mt-10 max-w-3xl"><p>This website is a design and engineering demo. All profile names, reviews, ratings, imagery, phone numbers, and email addresses are fictional placeholders.</p><h2>Use of content</h2><p>Do not treat directory content as an offer, booking channel, endorsement, or identity verification. Replace the placeholder configuration before any public deployment.</p></div></SiteShell>; }

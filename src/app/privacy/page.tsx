@@ -1,0 +1,5 @@
+import { SiteShell } from "@/components/layout/SiteShell";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { createMetadata } from "@/lib/seo";
+export const metadata = createMetadata({ title: "Privacy Policy", description: "Privacy information for the frontend-only Hyderabad Elite Directory demo.", pathname: "/privacy" });
+export default function PrivacyPage() { return <SiteShell><Breadcrumbs items={[{ name: "Privacy", href: "/privacy" }]} /><p className="eyebrow">Legal information</p><h1 className="display-title">Privacy policy</h1><div className="prose-copy mt-10 max-w-3xl"><p>This is a frontend-only demonstration. It does not have a server, account system, analytics SDK, or message database.</p><h2>Local browser state</h2><p>The age acknowledgement and theme preference may be stored locally in your browser when you use those controls. No personal profile is created.</p><h2>Contact form</h2><p>The contact form displays a local demo state and does not transmit the name, email, or message fields.</p></div></SiteShell>; }

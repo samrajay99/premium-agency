@@ -1,0 +1,11 @@
+import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { JsonLd, articleJsonLd } from "@/components/seo/JsonLd";
+import { RelatedContent } from "@/components/seo/RelatedContent";
+import { SiteShell } from "@/components/layout/SiteShell";
+import { blogArticles } from "@/data/blog";
+import { absoluteUrl, createMetadata } from "@/lib/seo";
+
+export function generateStaticParams() { return blogArticles.map((article) => ({ slug: article.slug })); }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const article = blogArticles.find((item) => item.slug === slug); return article ? createMetadata({ title: article.title, description: article.excerpt, pathname: `/blog/${article.slug}`, ogImage: article.featuredImage, type: "article" }) : {}; }
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const article = blogArticles.find((item) => item.slug === slug); if (!article) notFound(); return <SiteShell><JsonLd data={articleJsonLd({ title: article.title, description: article.excerpt, url: absoluteUrl(`/blog/${article.slug}`), datePublished: article.publishedAt, dateModified: article.updatedAt, image: absoluteUrl(article.featuredImage) })} /><Breadcrumbs items={[{ name: "Journal", href: "/blog" }, { name: article.title, href: `/blog/${article.slug}` }]} /><article className="max-w-3xl"><p className="eyebrow">{article.category} - Updated {article.updatedAt}</p><h1 className="display-title">{article.title}</h1><p className="lede">{article.excerpt}</p><div className="prose-copy mt-10">{article.content.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></article><RelatedContent title="More from the journal" links={blogArticles.filter((item) => item.slug !== article.slug).slice(0, 3).map((item) => ({ href: `/blog/${item.slug}`, label: item.title, note: item.category }))} /></SiteShell>; }

@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({ reset }: { reset: () => void }) { return <main className="min-h-screen bg-bg px-6 py-24 text-foreground"><div className="mx-auto max-w-xl"><p className="eyebrow">Something went wrong</p><h1 className="display-title mt-3">This demo needs a fresh attempt.</h1><button className="button-primary mt-8" onClick={() => reset()}>Try again</button></div></main>; }

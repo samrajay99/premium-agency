@@ -1,0 +1,5 @@
+import { SiteShell } from "@/components/layout/SiteShell";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { createMetadata } from "@/lib/seo";
+export const metadata = createMetadata({ title: "Disclaimer", description: "Important demo-content and fictional-listing disclaimer for Hyderabad Elite Directory.", pathname: "/disclaimer" });
+export default function DisclaimerPage() { return <SiteShell><Breadcrumbs items={[{ name: "Disclaimer", href: "/disclaimer" }]} /><p className="eyebrow">Please read</p><h1 className="display-title">A fictional directory experience</h1><div className="prose-copy mt-10 max-w-3xl"><p>Nothing on this website should be interpreted as a real person, real review, real availability signal, regulated service, or legal advice. The age notice is a product demonstration and does not replace local requirements.</p><h2>Images and ratings</h2><p>Visuals are locally generated placeholders. Ratings and testimonials exist only to exercise the interface and are not structured as real review claims.</p></div></SiteShell>; }
