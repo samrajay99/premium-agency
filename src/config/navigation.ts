@@ -2,12 +2,11 @@ import { siteConfig } from "@/config/site";
 
 export const navItems = [
   { href: "/", label: "Home" },
-  { href: "/profiles", label: "Profiles" },
-  { href: "/locations", label: "Locations" },
-  { href: "/categories", label: "Categories" },
-  { href: "/reviews", label: "Reviews" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/about", label: "About" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/price-list", label: "Price List" },
   { href: "/contact", label: "Contact" },
+  { href: "/reviews", label: "Reviews" },
 ] as const;
 
 export const footerGroups = {

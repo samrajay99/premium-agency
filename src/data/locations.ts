@@ -26,7 +26,7 @@ export const locations: DirectoryLocation[] = [
     intro:
       "Gachibowli sits at the western edge of Hyderabad’s IT corridor. This page groups fictional directory listings that mention Gachibowli hotels, conference venues, and evening dining. Use it as a local index, not as a claim that any real agency operates here.",
     areas: ["Financial District", "Nanakramguda", "ORR exit 1", "Gachibowli stadium precinct"],
-    featuredProfileSlugs: ["aanya-mehra", "aditi-rao"],
+    featuredProfileSlugs: ["aanya-mehra"],
     relatedLocationSlugs: ["hitech-city", "madhapur", "miyapur"],
     relatedCategorySlugs: ["premium-companionship", "travel-companionship"],
     faqs: [
@@ -43,7 +43,7 @@ export const locations: DirectoryLocation[] = [
     intro:
       "Madhapur is denser than Gachibowli, with a mix of hotels, retail, and offices. This page explains how demo profiles tagged to Madhapur might be discovered, and it links onward to neighbouring areas rather than repeating the same paragraph everywhere.",
     areas: ["Ayyappa Society", "Image Gardens Road", "Madhapur Main Road"],
-    featuredProfileSlugs: ["diya-kapoor", "riya-das"],
+    featuredProfileSlugs: ["diya-kapoor"],
     relatedLocationSlugs: ["hitech-city", "gachibowli", "kukatpally"],
     relatedCategorySlugs: ["premium-companionship", "models"],
     faqs: [
@@ -59,7 +59,7 @@ export const locations: DirectoryLocation[] = [
     intro:
       "HITEC City is the brand name visitors use for a cluster of offices and hotels. The listings here are written for launches and corporate evenings. Content is unique to this page: it focuses on venue types rather than repeating Gachibowli’s stadium-and-ORR framing.",
     areas: ["Cyber Towers", "Mindspace", "Hitec City Road"],
-    featuredProfileSlugs: ["kiara-nair", "noor-ali"],
+    featuredProfileSlugs: ["kiara-nair"],
     relatedLocationSlugs: ["madhapur", "gachibowli", "jubilee-hills"],
     relatedCategorySlugs: ["event-companionship", "models"],
     faqs: [
@@ -75,7 +75,7 @@ export const locations: DirectoryLocation[] = [
     intro:
       "Jubilee Hills is often associated with restaurants and residential lanes rather than office parks. This page’s listings lean toward lifestyle and conversation-led evenings, which is a different mix from the HITEC City event pages.",
     areas: ["Road No. 36", "Kavuri Hills", "Check Post"],
-    featuredProfileSlugs: ["meera-reddy", "priya-menon"],
+    featuredProfileSlugs: ["meera-reddy"],
     relatedLocationSlugs: ["banjara-hills", "hitech-city", "ameerpet"],
     relatedCategorySlugs: ["lifestyle-companionship", "premium-companionship"],
     faqs: [
@@ -112,6 +112,22 @@ export const locations: DirectoryLocation[] = [
     relatedCategorySlugs: ["travel-companionship", "premium-companionship"],
     faqs: [
       { question: "Is Kukatpally only residential?", answer: "It is mixed. The page mentions housing board areas and travel corridors because that is how visitors describe it." },
+    ],
+  },
+  {
+    slug: "kondapur",
+    name: "Kondapur",
+    title: "Premium Directory in Kondapur, Hyderabad",
+    description:
+      "Kondapur directory page for residential-tech corridor meetups, quiet hotel lounges, and discreet evenings.",
+    intro:
+      "Kondapur blends residential life with office campuses and corporate hospitality. The directory treats it as a distinct Hyderabad zone so visitors searching by the local name can find relevant listings without mixing in the bigger western IT corridor.",
+    areas: ["Kondapur X Roads", "Serilingampally", "Gandipet approach"],
+    featuredProfileSlugs: ["tanvi-iyer"],
+    relatedLocationSlugs: ["gachibowli", "madhapur", "miyapur"],
+    relatedCategorySlugs: ["premium-companionship", "travel-companionship"],
+    faqs: [
+      { question: "Why is Kondapur separate?", answer: "It is a well-known local search term that often gets grouped with nearby IT zones. A specific page keeps those searches useful." },
     ],
   },
   {

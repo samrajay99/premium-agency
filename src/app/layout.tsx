@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
+import { Outfit, Playfair_Display } from "next/font/google";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -19,18 +32,23 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [{ url: "/images/og/default.svg", width: 1200, height: 630, alt: siteConfig.siteName }],
   },
-  twitter: { card: "summary_large_image", title: siteConfig.siteName, description: siteConfig.description, images: ["/images/og/default.svg"] },
-  icons: { icon: "/favicon.svg" },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.siteName,
+    description: siteConfig.description,
+    images: ["/images/og/default.svg"],
+  },
+  icons: { icon: "/favicon.jpeg" },
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${outfit.variable} ${playfair.variable} dark`}>
+      <body className="bg-[#09090b] text-[#fdfdfd] antialiased min-h-screen">
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         {children}
       </body>
