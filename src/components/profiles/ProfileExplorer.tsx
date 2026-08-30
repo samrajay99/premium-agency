@@ -1,85 +1,125 @@
 "use client";
 
-import { Drawer } from "@/components/ui/Drawer";
-import { Button } from "@/components/ui/Button";
-import { SearchBar } from "@/components/search/SearchBar";
-import { ProfileFilterFields, defaultFilters, type ProfileFilterState } from "@/components/profiles/ProfileFilters";
-import { ProfileGrid } from "@/components/profiles/ProfileGrid";
+import { useState, useMemo } from "react";
+import { ProfileCard } from "@/components/profiles/ProfileCard";
+import { ModelFilterBar, FilterState } from "@/components/search/ModelFilterBar";
 import type { Profile } from "@/lib/data/profiles";
-import { useMemo, useState } from "react";
+import { SearchX, Sparkles, Phone, MessageCircle } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-const PAGE_SIZE = 6;
+export function ProfileExplorer({ profiles }: { profiles: Profile[] }) {
+  const [filters, setFilters] = useState<FilterState>({
+    location: "",
+    category: "",
+    query: "",
+  });
 
-export function ProfileExplorer({
-  profiles,
-  categories,
-  locations,
-}: {
-  profiles: Profile[];
-  categories: { slug: string; name: string }[];
-  locations: { slug: string; name: string }[];
-}) {
-  const [filters, setFilters] = useState<ProfileFilterState>(defaultFilters);
-  const [visible, setVisible] = useState(PAGE_SIZE);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeFilters, setActiveFilters] = useState<FilterState>({
+    location: "",
+    category: "",
+    query: "",
+  });
 
-  const results = useMemo(() => {
-    const query = filters.query.trim().toLowerCase();
-    const filtered = profiles.filter((profile) => {
-      const matchesQuery =
-        !query ||
-        [profile.name, profile.area, profile.category, profile.city, ...profile.tags]
-          .join(" ")
-          .toLowerCase()
-          .includes(query);
-      const matchesCategory = filters.category === "all" || profile.categorySlug === filters.category;
-      const matchesLocation = filters.location === "all" || profile.locationSlug === filters.location;
-      const matchesRating = profile.rating >= filters.minRating;
-      const matchesVerified = !filters.verifiedOnly || profile.verified;
-      const matchesAvailable = !filters.availableOnly || profile.available;
-      return matchesQuery && matchesCategory && matchesLocation && matchesRating && matchesVerified && matchesAvailable;
+  // Filter profiles based on current active search filters
+  const filteredProfiles = useMemo(() => {
+    return profiles.filter((p) => {
+      // 1. Location filter
+      if (activeFilters.location && p.locationSlug !== activeFilters.location) {
+        // Also check area string
+        const areaMatch = p.area.toLowerCase().replace(/\s+/g, "-").includes(activeFilters.location.toLowerCase());
+        if (!areaMatch) return false;
+      }
+
+      // 2. Category filter
+      if (activeFilters.category && p.categorySlug !== activeFilters.category) {
+        const catMatch = p.category.toLowerCase().replace(/\s+/g, "-").includes(activeFilters.category.toLowerCase());
+        if (!catMatch) return false;
+      }
+
+      // 3. Text query filter (name, area, city, tags, specializations)
+      if (activeFilters.query.trim()) {
+        const q = activeFilters.query.toLowerCase().trim();
+        const inName = p.name.toLowerCase().includes(q);
+        const inArea = p.area.toLowerCase().includes(q);
+        const inCategory = p.category.toLowerCase().includes(q);
+        const inTags = p.tags?.some((t) => t.toLowerCase().includes(q));
+        const inSpecs = p.specializations?.some((s) => s.toLowerCase().includes(q));
+        if (!inName && !inArea && !inCategory && !inTags && !inSpecs) {
+          return false;
+        }
+      }
+
+      return true;
     });
+  }, [profiles, activeFilters]);
 
-    return filtered.sort((a, b) => {
-      if (filters.sort === "rating") return b.rating - a.rating;
-      if (filters.sort === "newest") return b.createdAt.localeCompare(a.createdAt);
-      if (filters.sort === "popular") return b.popularity - a.popularity;
-      return Number(b.featured) - Number(a.featured) || b.popularity - a.popularity;
-    });
-  }, [filters, profiles]);
+  const handleFilterChange = (newFilters: FilterState) => {
+    setFilters(newFilters);
+    // Instant live update for smooth experience
+    setActiveFilters(newFilters);
+  };
 
-  const shown = results.slice(0, visible);
+  const handleSearch = () => {
+    setActiveFilters(filters);
+  };
+
+  const handleReset = () => {
+    const emptyState = { location: "", category: "", query: "" };
+    setFilters(emptyState);
+    setActiveFilters(emptyState);
+  };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-      <aside className="hidden lg:block">
-        <div className="sticky top-24 rounded-3xl border border-line bg-bg-elevated p-5">
-          <h2 className="mb-4 font-serif text-2xl">Filters</h2>
-          <ProfileFilterFields value={filters} onChange={(next) => { setFilters(next); setVisible(PAGE_SIZE); }} categories={categories} locations={locations} />
+    <div className="space-y-10">
+      {/* Interactive Search & Filter Bar */}
+      <ModelFilterBar
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        onSearch={handleSearch}
+        onReset={handleReset}
+        totalResults={filteredProfiles.length}
+        totalProfiles={profiles.length}
+      />
+
+      {/* Profiles Output */}
+      {filteredProfiles.length > 0 ? (
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {filteredProfiles.map((profile) => (
+            <ProfileCard key={profile.id} profile={profile} />
+          ))}
         </div>
-      </aside>
-      <div>
-        <div className="mb-6 flex flex-col gap-3 sm:flex-row">
-          <div className="flex-1">
-            <SearchBar value={filters.query} onChange={(query) => { setFilters({ ...filters, query }); setVisible(PAGE_SIZE); }} />
+      ) : (
+        /* Empty State */
+        <div className="rounded-3xl border border-white/10 bg-[#161219] p-8 sm:p-12 text-center shadow-2xl">
+          <div className="mx-auto flex size-20 items-center justify-center rounded-full bg-[#e11d74]/15 text-[#e11d74] border border-[#e11d74]/30 shadow-[0_0_20px_rgba(225,29,116,0.3)]">
+            <SearchX className="size-10" />
           </div>
-          <Button type="button" variant="secondary" className="lg:hidden" onClick={() => setDrawerOpen(true)}>
-            Filters
-          </Button>
+          <h3 className="mt-6 font-serif text-2xl font-black uppercase text-white">
+            No Exact Models Found
+          </h3>
+          <p className="mx-auto mt-2 max-w-md text-sm text-zinc-400">
+            We couldn&apos;t find any verified profiles matching your specific filter criteria. Try clearing your filters or calling our concierge directly.
+          </p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={handleReset}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#f5b324] bg-[#f5b324]/10 px-6 py-3 text-xs sm:text-sm font-black uppercase tracking-wider text-[#f5b324] transition hover:bg-[#f5b324] hover:text-black"
+            >
+              <Sparkles className="size-4" />
+              View All {profiles.length} Models
+            </button>
+            <a
+              href={`tel:+91${siteConfig.phone}`}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#e11d74] px-6 py-3 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:bg-[#d81657]"
+            >
+              <Phone className="size-4 fill-current" />
+              Call Concierge: {siteConfig.phone}
+            </a>
+          </div>
         </div>
-        <p className="mb-6 text-sm text-muted">{results.length} listings in this demo set</p>
-        <ProfileGrid profiles={shown} />
-        {visible < results.length ? (
-          <div className="mt-8 flex justify-center">
-            <Button type="button" variant="secondary" onClick={() => setVisible((count) => count + PAGE_SIZE)}>
-              Load more
-            </Button>
-          </div>
-        ) : null}
-      </div>
-      <Drawer open={drawerOpen} title="Filters" onClose={() => setDrawerOpen(false)}>
-        <ProfileFilterFields value={filters} onChange={(next) => { setFilters(next); setVisible(PAGE_SIZE); }} categories={categories} locations={locations} />
-      </Drawer>
+      )}
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function ProfilesPage() {
         <h1 className="display-title">Explore Hyderabad profiles</h1>
         <p className="lede">A fictional, non-explicit demo set organised for quick, private discovery.</p>
       </header>
-      <ProfileExplorer profiles={getProfiles()} categories={getCategories()} locations={getLocations()} />
+      <ProfileExplorer profiles={getProfiles()} />
     </SiteShell>
   );
 }

@@ -64,16 +64,6 @@ export default function ContactPage() {
               </a>
 
               <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#16161c] p-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f5b324]/15 text-[#f5b324]">
-                  <Mail className="size-6" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">Management Email</span>
-                  <p className="text-sm font-semibold text-white">{siteConfig.email}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#16161c] p-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-500/15 text-purple-400">
                   <MapPin className="size-6" />
                 </div>

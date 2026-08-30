@@ -94,7 +94,7 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
           Review Submitted Successfully!
         </h3>
         <p className="text-sm text-zinc-300 max-w-md mx-auto">
-          Thank you, <strong className="text-[#f5b324]">{name || "Valued Client"}</strong>. Your valuable review for <strong className="text-white">{companion}</strong> has been received and emailed to management at <strong className="text-[#22c55e]">{siteConfig.email}</strong>.
+          Thank you, <strong className="text-[#f5b324]">{name || "Valued Client"}</strong>. Your valuable review for <strong className="text-white">{companion}</strong> has been received and submitted directly to private management.
         </p>
         <button
           type="button"
@@ -125,7 +125,7 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
           Share Your Service Experience
         </h3>
         <p className="text-xs sm:text-sm text-zinc-400">
-          Your feedback is sent directly to management at {siteConfig.email} to maintain exceptional service standards.
+          Your feedback is sent directly to management to maintain exceptional service standards.
         </p>
       </div>
 
@@ -273,7 +273,7 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
         ) : (
           <>
             <Send className="size-5 text-black" />
-            <span>Submit Review to Management ({siteConfig.email})</span>
+            <span>Submit Review to Management</span>
           </>
         )}
       </button>

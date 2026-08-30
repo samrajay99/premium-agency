@@ -63,7 +63,7 @@ export function ContactForm() {
             Booking Enquiry Received!
           </h3>
           <p className="mt-2 text-sm sm:text-base text-zinc-300 max-w-md mx-auto">
-            Thank you, <strong className="text-[#f5b324]">{formData.name}</strong>. Your message has been sent to our private concierge at <strong className="text-white">{siteConfig.email}</strong>.
+            Thank you, <strong className="text-[#f5b324]">{formData.name}</strong>. Your message has been sent directly to our private concierge management.
           </p>
           <p className="mt-1 text-xs text-zinc-400">
             Our booking manager will contact you on <strong className="text-[#22c55e]">{formData.phone}</strong> within 10-15 minutes.
@@ -82,7 +82,7 @@ export function ContactForm() {
               <span>Call Now</span>
             </a>
             <a
-              href={`https://wa.me/91${siteConfig.phone}?text=${encodeURIComponent(`Hello, I just submitted an enquiry for ${formData.companion}`)}`}
+              href={`https://wa.me/91${siteConfig.whatsapp}?text=${encodeURIComponent(`Hello, I just submitted an enquiry for ${formData.companion}`)}`}
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center gap-2 rounded-xl bg-[#22c55e] py-3 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:bg-[#16a34a]"

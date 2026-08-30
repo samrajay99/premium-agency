@@ -10,10 +10,10 @@ export interface EmailPayload {
 export async function sendNotificationEmail(
   payload: EmailPayload
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
-  const recipient = siteConfig.email || "gsamraj178@gmail.com";
+  const recipient = siteConfig.email || "hello.escorts.service@gmail.com";
 
   // Check if SMTP credentials are provided in environment variables (.env.local)
-  const smtpUser = (process.env.SMTP_USER || process.env.GMAIL_USER || "gsamraj178@gmail.com").trim();
+  const smtpUser = (process.env.SMTP_USER || process.env.GMAIL_USER || "hello.escorts.service@gmail.com").trim();
   const smtpPass = (process.env.SMTP_PASS || process.env.GMAIL_APP_PASSWORD || "").trim().replace(/\s+/g, "");
 
   if (smtpPass) {
@@ -46,7 +46,7 @@ export async function sendNotificationEmail(
   // If SMTP password is not set yet in .env.local
   console.warn("\n=======================================================");
   console.warn("⚠️  REAL EMAIL NOT SENT: GMAIL APP PASSWORD IS MISSING!");
-  console.warn("👉 To receive real emails in gsamraj178@gmail.com, add:");
+  console.warn("👉 To receive real emails in hello.escorts.service@gmail.com, add:");
   console.warn("   SMTP_PASS=your_16_digit_app_password to .env.local");
   console.warn("=======================================================");
   console.log(`[SIMULATED EMAIL DISPATCH TO: ${recipient}]`);

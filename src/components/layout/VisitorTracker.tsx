@@ -19,6 +19,7 @@ export function VisitorTracker() {
         url: window.location.href,
         referrer: document.referrer || "Direct Visit",
         screen: `${window.screen.width}x${window.screen.height} (${window.innerWidth}x${window.innerHeight})`,
+        action: "Page Load / Browse Interaction",
         timestamp: new Date().toISOString(),
       };
 

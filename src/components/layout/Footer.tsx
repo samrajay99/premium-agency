@@ -42,6 +42,13 @@ export function Footer() {
               <MessageCircle className="size-4 fill-current" />
               <span>Direct WhatsApp Booking</span>
             </a>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-[#f5b324] transition-colors"
+            >
+              <span className="text-sm">✉️</span>
+              <span>{siteConfig.email}</span>
+            </a>
           </div>
         </div>
 

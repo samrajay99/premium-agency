@@ -8,8 +8,10 @@ import { RelatedContent } from "@/components/seo/RelatedContent";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { getProfileBySlug, getProfiles, getRelatedProfiles } from "@/lib/data/profiles";
+import { getReviewsForProfile } from "@/lib/data/content";
 import { createMetadata } from "@/lib/seo";
 import { CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { ProfileReviewsSection } from "@/components/profiles/ProfileReviewsSection";
 
 export function generateStaticParams() {
   return getProfiles().map((profile) => ({ slug: profile.slug }));
@@ -30,6 +32,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ slug: 
   const profile = getProfileBySlug((await params).slug);
   if (!profile) notFound();
   const related = getRelatedProfiles(profile);
+  const profileReviews = getReviewsForProfile(profile.slug);
 
   return (
     <SiteShell>
@@ -105,6 +108,9 @@ export default async function ProfilePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </div>
+
+      {/* Model Verified Client Reviews Section */}
+      <ProfileReviewsSection profile={profile} reviews={profileReviews} />
 
       {/* FAQs Section */}
       <section className="section-rule grid gap-10 py-14 lg:grid-cols-[1fr_1.2fr]">
