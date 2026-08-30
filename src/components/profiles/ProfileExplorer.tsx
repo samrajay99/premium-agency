@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { ProfileCard } from "@/components/profiles/ProfileCard";
 import { ModelFilterBar, FilterState } from "@/components/search/ModelFilterBar";
 import type { Profile } from "@/lib/data/profiles";
-import { SearchX, Sparkles, Phone, MessageCircle } from "lucide-react";
+import { SearchX, Sparkles, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export function ProfileExplorer({ profiles }: { profiles: Profile[] }) {

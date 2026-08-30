@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Star, Send, CheckCircle2, AlertCircle, Loader2, Sparkles } from "lucide-react";
 import { profiles } from "@/data/profiles";
-import { siteConfig } from "@/config/site";
 
 export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newReview: {
   id: string;

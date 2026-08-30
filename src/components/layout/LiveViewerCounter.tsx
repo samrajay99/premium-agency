@@ -1,16 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Eye, Activity, ShieldCheck, Users, Flame } from "lucide-react";
+import { Eye, Activity, ShieldCheck, Users } from "lucide-react";
 
 export function LiveViewerCounter({
   variant = "footer",
 }: {
   variant?: "footer" | "floating" | "inline";
 }) {
-  const [viewers, setViewers] = useState(46);
+  const [viewers, setViewers] = useState(48);
   const [totalVisits, setTotalVisits] = useState(28480);
-  const [hasIncremented, setHasIncremented] = useState(false);
 
   useEffect(() => {
     // 1. Fetch & increment total visit count from server API or localStorage
@@ -51,16 +50,10 @@ export function LiveViewerCounter({
         const local = localStorage.getItem("total_site_visits");
         const base = local ? parseInt(local, 10) : 28480;
         setTotalVisits(base + 1);
-      } finally {
-        setHasIncremented(true);
       }
     };
 
     recordVisit();
-
-    // Random initial active viewers
-    const initialViewers = Math.floor(Math.random() * 20) + 38;
-    setViewers(initialViewers);
 
     // Fluctuate viewers slightly every 5 seconds to simulate live traffic
     const interval = setInterval(() => {

@@ -1,8 +1,6 @@
 import { ProfileExplorer } from "@/components/profiles/ProfileExplorer";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
-import { getCategories } from "@/lib/data/categories";
-import { getLocations } from "@/lib/data/locations";
 import { getProfiles } from "@/lib/data/profiles";
 import { createMetadata } from "@/lib/seo";
 

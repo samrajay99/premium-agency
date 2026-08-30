@@ -16,7 +16,6 @@ import {
   Award,
   UserCheck,
   Target,
-  Compass,
   Star,
   Quote,
   TrendingUp,
@@ -400,6 +399,40 @@ export default function AboutPage() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* SERVICE STANDARDS & PILLARS */}
+      <section className="mt-16 border-t border-white/10 pt-16">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="text-xs font-black uppercase tracking-[0.2em] text-[#f5b324]">
+            Service Standards
+          </span>
+          <h2 className="mt-2 font-serif text-3xl sm:text-4xl font-black uppercase text-white">
+            Why Discerning Gentlemen Choose Us
+          </h2>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <article
+                key={pillar.title}
+                className="rounded-3xl border border-white/10 bg-[#141219] p-6 shadow-lg transition hover:border-[#e11d74] hover:scale-[1.02]"
+              >
+                <div className="flex size-12 items-center justify-center rounded-2xl bg-[#e11d74]/15 text-[#e11d74] border border-[#e11d74]/30">
+                  <Icon className="size-6" />
+                </div>
+                <h3 className="mt-4 font-serif text-lg font-bold uppercase text-white">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
+                  {pillar.description}
+                </p>
+              </article>
+            );
+          })}
         </div>
       </section>
 

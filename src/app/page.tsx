@@ -13,14 +13,11 @@ import {
   Phone,
   MessageCircle,
   Star,
-  Sparkles,
   Building2,
   Hotel,
-  Clock,
   Banknote,
   CheckCircle2,
   Quote,
-  Flame,
   ArrowRight,
 } from "lucide-react";
 

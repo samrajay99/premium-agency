@@ -11,9 +11,7 @@ import {
   Clock,
   Lock,
   Award,
-  Zap,
   HeartHandshake,
-  Star,
 } from "lucide-react";
 
 export const metadata = createMetadata({

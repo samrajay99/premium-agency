@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib/seo";
-import { Phone, MessageCircle, Mail, MapPin, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
+import { Phone, MessageCircle, MapPin, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Contact & VIP Booking | Best Escorts in Hyderabad",
