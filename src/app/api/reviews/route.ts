@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendNotificationEmail } from "@/lib/mailer";
-import { siteConfig } from "@/config/site";
+ import { siteConfig } from "@/config/site";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {

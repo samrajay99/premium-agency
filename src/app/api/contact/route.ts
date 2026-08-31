@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { sendNotificationEmail } from "@/lib/mailer";
 import { siteConfig } from "@/config/site";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -10,7 +12,7 @@ export async function POST(req: NextRequest) {
       phone = "",
       email = "",
       companion = "General Enquiry",
-      location = "Hyderabad",
+      location = "",
       serviceType = "Outcall",
       preferredTime = "Immediate / Flexible",
       message = "",

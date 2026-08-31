@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
-  output: "export",
+  output: process.env.GITHUB_ACTIONS ? "export" : undefined,
   basePath: process.env.GITHUB_ACTIONS ? "/premium-agency" : "",
   assetPrefix: process.env.GITHUB_ACTIONS ? "/premium-agency/" : undefined,
   images: {

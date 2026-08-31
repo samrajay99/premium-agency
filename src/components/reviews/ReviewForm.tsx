@@ -53,8 +53,14 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
         }),
       });
 
-      const data = await res.json();
-      if (res.ok && data.success) {
+      let data: { success?: boolean; error?: string; message?: string } | null = null;
+      try {
+        data = await res.json();
+      } catch {
+        data = null;
+      }
+
+      if (res.ok && data?.success) {
         setSent(true);
 
         // Find slug if matching
@@ -73,11 +79,11 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
           });
         }
       } else {
-        setError(data.error || "Failed to submit review. Please try again.");
+        setError(data?.error || `Submission failed (${res.status}). Please try again or reach out on WhatsApp.`);
       }
     } catch (err) {
-      console.error(err);
-      setError("Network error while submitting your review.");
+      console.error("Review submission error:", err);
+      setError("Unable to connect to server. Please check your internet connection or contact us via WhatsApp.");
     } finally {
       setLoading(false);
     }

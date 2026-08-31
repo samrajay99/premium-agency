@@ -37,15 +37,21 @@ export function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
-      if (res.ok && data.success) {
+      let data: { success?: boolean; error?: string; message?: string } | null = null;
+      try {
+        data = await res.json();
+      } catch {
+        data = null;
+      }
+
+      if (res.ok && data?.success) {
         setSent(true);
       } else {
-        setError(data.error || "Failed to submit enquiry. Please call us directly.");
+        setError(data?.error || `Submission failed (${res.status}). Please call or WhatsApp us directly.`);
       }
     } catch (err) {
-      console.error(err);
-      setError("Network error while submitting. Please call or WhatsApp us directly.");
+      console.error("Contact submission error:", err);
+      setError("Unable to connect to server. Please call or WhatsApp us directly.");
     } finally {
       setLoading(false);
     }
