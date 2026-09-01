@@ -78,7 +78,7 @@ export const profiles: Profile[] = [
     specializations: ["VIP Model", "High Profile", "Outcall"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p02",
@@ -123,7 +123,7 @@ export const profiles: Profile[] = [
     specializations: ["Celebrity", "Glamour", "Premium"],
     badges: ["verified", "premium"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p03",
@@ -165,7 +165,7 @@ export const profiles: Profile[] = [
     specializations: ["Russian", "International", "VIP Escort"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p04",
@@ -211,7 +211,7 @@ export const profiles: Profile[] = [
     specializations: ["Tattoo Model", "Modern", "Incall"],
     badges: ["verified", "premium"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p05",
@@ -256,7 +256,7 @@ export const profiles: Profile[] = [
     specializations: ["South Indian", "College Escort", "Friendly"],
     badges: ["verified"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p06",
@@ -301,7 +301,7 @@ export const profiles: Profile[] = [
     specializations: ["Indian Model", "VIP Profile", "Outcall"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p07",
@@ -347,7 +347,7 @@ export const profiles: Profile[] = [
     specializations: ["College Escort", "Indian Beauty", "Sweet"],
     badges: ["verified", "premium"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p08",
@@ -394,7 +394,7 @@ export const profiles: Profile[] = [
     specializations: ["Cute Model", "College Escort", "Sweet"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p09",
@@ -438,7 +438,7 @@ export const profiles: Profile[] = [
     specializations: ["Fashion Model", "Glamour", "Outcall"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p10",
@@ -483,7 +483,7 @@ export const profiles: Profile[] = [
     specializations: ["College Girl", "Friendly", "Incall"],
     badges: ["verified", "premium"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p11",
@@ -534,7 +534,7 @@ export const profiles: Profile[] = [
     specializations: ["VIP Escort", "High Class", "Luxury"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p12",
@@ -579,7 +579,7 @@ export const profiles: Profile[] = [
     specializations: ["South Indian", "Traditional", "Discreet"],
     badges: ["verified", "premium"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p13",
@@ -616,7 +616,7 @@ export const profiles: Profile[] = [
     specializations: ["Model Escort", "Fashion", "VIP"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p14",
@@ -660,7 +660,7 @@ export const profiles: Profile[] = [
     specializations: ["VIP Profile", "Glamour", "Outcall"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p15",
@@ -708,7 +708,7 @@ export const profiles: Profile[] = [
     specializations: ["Hot Companion", "Elite VIP", "Passionate"],
     badges: ["verified", "vip"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p16",
@@ -754,7 +754,7 @@ export const profiles: Profile[] = [
     specializations: ["Pretty Model", "Premium", "Incall & Outcall"],
     badges: ["verified", "premium"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
   {
     id: "p17",
@@ -795,6 +795,6 @@ export const profiles: Profile[] = [
     specializations: ["Budget Friendly", "Incall", "Affordable"],
     badges: ["verified", "premium"],
     phone: "9204830058",
-    whatsapp: "9204876499",
+    whatsapp: "6264420408",
   },
 ];

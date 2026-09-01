@@ -21,11 +21,29 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import { JsonLd, localBusinessJsonLd, faqJsonLd, serviceJsonLd } from "@/components/seo/JsonLd";
+import { Accordion } from "@/components/ui/Accordion";
+import { HelpCircle } from "lucide-react";
+
 export const metadata = createMetadata({
   title: "Best Escorts in Hyderabad | 100% Verified VIP Escort Service 24/7",
   description:
-    "Hyderabad's premier escort service agency. Explore 100% verified model profiles across Banjara Hills, Jubilee Hills, HITEC City, Gachibowli, Madhapur, and Kukatpally with transparent rates & 30-min 5-star hotel outcalls.",
+    "Hyderabad's premier VIP escort service. Explore 100% verified model profiles across Banjara Hills, Jubilee Hills, HITEC City, Gachibowli, Madhapur, and Kukatpally with transparent rates & 30-min 5-star hotel outcalls.",
   pathname: "/",
+  keywords: [
+    "escort service in hyderabad",
+    "hyderabad escorts",
+    "hyderabad call girls",
+    "call girls hyderabad",
+    "vip escorts in hyderabad",
+    "russian escorts hyderabad",
+    "banjara hills escort service",
+    "jubilee hills escorts",
+    "hitec city escort service",
+    "gachibowli escorts",
+    "madhapur call girl",
+    "5 star hotel outcalls hyderabad",
+  ],
 });
 
 export default function HomePage() {
@@ -282,7 +300,7 @@ export default function HomePage() {
         
         <div className="relative z-10 mx-auto max-w-5xl text-center">
           <span className="inline-block rounded-full border border-[#e11d74]/50 bg-[#e11d74]/15 px-4 py-1.5 text-xs sm:text-sm font-black uppercase tracking-[0.2em] text-[#f43f5e] shadow-[0_0_15px_rgba(225,29,116,0.3)]">
-            Hyderabad&apos;s #1 Elite Agency
+            Hyderabad&apos;s #1 Elite Service
           </span>
 
           <h1 className="mt-4 text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.95] tracking-tight text-white font-serif">
@@ -756,6 +774,104 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      {/* 9. FREQUENTLY ASKED QUESTIONS (SEO ACCORDION & GOOGLE RICH SNIPPET READY) */}
+      <section className="mt-16 border-t border-white/10 pt-16">
+        <div className="mx-auto max-w-4xl text-center mb-10">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#f5b324]/50 bg-[#f5b324]/10 px-4 py-1 text-xs font-black uppercase tracking-[0.2em] text-[#f5b324]">
+            <HelpCircle className="size-3.5" />
+            <span>Hyderabad Escorts Guide &amp; FAQ</span>
+          </div>
+          <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wider text-white">
+            FREQUENTLY ASKED <span className="text-[#f5b324]">QUESTIONS</span>
+          </h2>
+          <div className="mx-auto mt-3 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-[#f5b324] to-transparent" />
+          <p className="mt-3 text-sm sm:text-base text-zinc-300">
+            Clear, honest answers about booking procedures, rates, outcall hotel visits, and strict client confidentiality in Hyderabad.
+          </p>
+        </div>
+
+        <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-[#120a13] p-6 sm:p-8 shadow-2xl">
+          <Accordion
+            items={[
+              {
+                id: "faq-01",
+                question: "How do I book an escort service in Hyderabad?",
+                answer:
+                  "Booking is simple, fast, and completely discreet. Browse our verified model profiles, select your companion, and click the direct Call or WhatsApp button (+91 6264420408). Our 24/7 senior concierge will confirm model availability, hotel outcall details, and arrange a rapid 30-minute dispatch to your 5-star hotel or luxury suite.",
+              },
+              {
+                id: "faq-02",
+                question: "Are all escort profiles on Best Escorts Hyderabad 100% genuine?",
+                answer:
+                  "Yes. Every companion featured on our website undergoes our strict multi-step verification protocol. All photographs are 100% authentic, unedited, and current. What you see is exactly who will arrive at your venue.",
+              },
+              {
+                id: "faq-03",
+                question: "Which areas in Hyderabad do you provide 30-minute outcall visits to?",
+                answer:
+                  "We provide instant 25 to 35-minute outcall services across all major upscale neighborhoods in Hyderabad including Banjara Hills, Jubilee Hills, HITEC City, Gachibowli, Madhapur, Kukatpally, Begumpet, Somajiguda, Kondapur, and Manikonda, specifically targeting top luxury hotels such as Taj Krishna, ITC Kohenur, Park Hyatt, Novotel, Sheraton, and The Westin.",
+              },
+              {
+                id: "faq-04",
+                question: "What are the payment options? Is Cash on Delivery (COD) supported?",
+                answer:
+                  "We strictly support 100% Cash on Delivery (COD) to prevent online scams and give you complete peace of mind. You only pay after your companion arrives at your hotel room or private venue. We also accept UPI (Google Pay, PhonePe, Paytm) upon companion arrival.",
+              },
+              {
+                id: "faq-05",
+                question: "How is client privacy and confidentiality protected?",
+                answer:
+                  "Client discretion is our highest priority. We never store personal identification logs, phone numbers, or conversation histories. All communication is 256-bit encrypted and wiped clean after each completed booking.",
+              },
+              {
+                id: "faq-06",
+                question: "What categories of companions are available in Hyderabad?",
+                answer:
+                  "Our curated roster includes VIP Fashion Models, Celebrity Companions, Exotic Russian International Escorts, College Girls, Traditional South Indian Escorts, Air Hostesses, and High-Profile Independent Companions tailored for social dates, corporate dinners, and private overnight hotel stays.",
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Structured Data (JSON-LD) for Search Engines */}
+      <JsonLd
+        data={[
+          localBusinessJsonLd(),
+          faqJsonLd([
+            {
+              question: "How do I book an escort service in Hyderabad?",
+              answer:
+                "Browse our verified model profiles and contact our 24/7 VIP concierge directly via Call or WhatsApp at +91 6264420408 for rapid 30-minute 5-star hotel outcall dispatch in Hyderabad.",
+            },
+            {
+              question: "Are all escort profiles on Best Escorts Hyderabad 100% genuine?",
+              answer:
+                "Yes. Every companion undergoes a strict verification protocol ensuring 100% authentic, real photos.",
+            },
+            {
+              question: "Which areas in Hyderabad do you provide 30-minute outcall visits to?",
+              answer:
+                "Banjara Hills, Jubilee Hills, HITEC City, Gachibowli, Madhapur, Kukatpally, Begumpet, Somajiguda, Kondapur, and Manikonda.",
+            },
+            {
+              question: "Is Cash on Delivery (COD) available?",
+              answer:
+                "Yes, we provide 100% Cash on Delivery (COD) with zero advance payment requirements.",
+            },
+            {
+              question: "How is client privacy protected?",
+              answer:
+                "We provide 100% strict anonymity with zero data retention and 256-bit encrypted communications.",
+            },
+          ]),
+          serviceJsonLd(
+            "VIP Escort Service Hyderabad",
+            "Premier verified companionship and 30-minute 5-star hotel outcalls across Banjara Hills, Jubilee Hills, HITEC City, and Gachibowli."
+          ),
+        ]}
+      />
     </SiteShell>
   );
 }

@@ -5,18 +5,29 @@ import { createMetadata } from "@/lib/seo";
 import { Phone, MessageCircle, Star, MapPin, Eye } from "lucide-react";
 import Link from "next/link";
 
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { JsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
+
 export const metadata = createMetadata({
   title: "VIP Photo Gallery | Best Escorts in Hyderabad",
   description: "Browse high resolution verified photo gallery of VIP companions and independent escorts in Hyderabad.",
   pathname: "/gallery",
+  keywords: [
+    "hyderabad escorts photos",
+    "hyderabad call girls photo gallery",
+    "verified escorts pics hyderabad",
+    "vip escorts gallery hyderabad",
+  ],
 });
 
 export default function GalleryPage() {
   const profiles = getProfiles();
+  const crumbs = [{ name: "Gallery", href: "/gallery" }];
 
   return (
     <SiteShell>
-      <div className="py-8 sm:py-12">
+      <Breadcrumbs items={crumbs} />
+      <div className="py-6 sm:py-10">
         <div className="text-center mb-10">
           <span className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] text-[#e11d74]">
             100% Genuine Photos
@@ -133,6 +144,7 @@ export default function GalleryPage() {
           ))}
         </div>
       </div>
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
     </SiteShell>
   );
 }

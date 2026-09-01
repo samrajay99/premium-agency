@@ -26,6 +26,8 @@ export function AgeGate() {
           screen: `${window.screen.width}x${window.screen.height}`,
           action: "User Verified 18+ and Entered Site",
           timestamp: new Date().toISOString(),
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown Timezone",
+          language: navigator.language || "Unknown",
         }),
       }).catch((err) => console.warn("AgeGate notify ping error:", err));
     } catch {

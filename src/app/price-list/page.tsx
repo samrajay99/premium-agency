@@ -14,11 +14,21 @@ import {
   HeartHandshake,
 } from "lucide-react";
 
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/components/seo/JsonLd";
+
 export const metadata = createMetadata({
-  title: "Price List & Rates | Distinguishing Features of Our Service in Hyderabad",
+  title: "Price List & Rates | Verified Escort Rates in Hyderabad",
   description:
     "Transparent pricing rates for verified companions in Hyderabad. Discover our distinguishing features: COD payment, 100% photo matching, 30-min outcalls, and zero hidden charges.",
   pathname: "/price-list",
+  keywords: [
+    "hyderabad escorts price list",
+    "hyderabad call girls rates",
+    "escort service charges hyderabad",
+    "cheap escorts hyderabad rates",
+    "vip escorts price hyderabad",
+  ],
 });
 
 export default function PriceListPage() {
@@ -126,9 +136,12 @@ export default function PriceListPage() {
     },
   ];
 
+  const crumbs = [{ name: "Price List", href: "/price-list" }];
+
   return (
     <SiteShell>
-      <div className="py-8 sm:py-12">
+      <Breadcrumbs items={crumbs} />
+      <div className="py-6 sm:py-10">
         {/* Header Banner */}
         <div className="text-center mb-12">
           <span className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] text-[#e11d74]">
@@ -327,6 +340,16 @@ export default function PriceListPage() {
           </div>
         </div>
       </div>
+
+      <JsonLd
+        data={[
+          serviceJsonLd(
+            "Escort Service Price Rates Hyderabad",
+            "Transparent pricing rates for 100% verified VIP escorts and 5-star hotel outcalls across Hyderabad."
+          ),
+          breadcrumbJsonLd(crumbs),
+        ]}
+      />
     </SiteShell>
   );
 }

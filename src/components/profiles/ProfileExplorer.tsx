@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ProfileCard } from "@/components/profiles/ProfileCard";
-import { ModelFilterBar, FilterState } from "@/components/search/ModelFilterBar";
+import { ModelFilterBar, FilterState, MODEL_CATEGORIES } from "@/components/search/ModelFilterBar";
 import type { Profile } from "@/lib/data/profiles";
 import { SearchX, Sparkles, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
@@ -25,7 +25,6 @@ export function ProfileExplorer({ profiles }: { profiles: Profile[] }) {
     return profiles.filter((p) => {
       // 1. Location filter
       if (activeFilters.location && p.locationSlug !== activeFilters.location) {
-        // Also check area string
         const areaMatch = p.area.toLowerCase().replace(/\s+/g, "-").includes(activeFilters.location.toLowerCase());
         if (!areaMatch) return false;
       }
@@ -55,7 +54,6 @@ export function ProfileExplorer({ profiles }: { profiles: Profile[] }) {
 
   const handleFilterChange = (newFilters: FilterState) => {
     setFilters(newFilters);
-    // Instant live update for smooth experience
     setActiveFilters(newFilters);
   };
 
@@ -69,8 +67,38 @@ export function ProfileExplorer({ profiles }: { profiles: Profile[] }) {
     setActiveFilters(emptyState);
   };
 
+  const handleQuickCategory = (slug: string) => {
+    const nextState = { ...filters, category: filters.category === slug ? "" : slug };
+    setFilters(nextState);
+    setActiveFilters(nextState);
+  };
+
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
+      {/* Quick Category Discovery Pills */}
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 mr-1 hidden sm:inline">
+          Quick Filter:
+        </span>
+        {MODEL_CATEGORIES.map((cat) => {
+          const isSelected = (filters.category === cat.slug) || (!filters.category && cat.slug === "");
+          return (
+            <button
+              key={cat.slug || "all"}
+              type="button"
+              onClick={() => handleQuickCategory(cat.slug)}
+              className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase transition-all duration-200 active:scale-95 ${
+                isSelected
+                  ? "bg-gradient-to-r from-[#e11d74] to-[#f5b324] text-white shadow-[0_4px_15px_rgba(225,29,116,0.35)] scale-105"
+                  : "border border-white/10 bg-[#161219] text-zinc-300 hover:border-[#f5b324]/50 hover:text-white"
+              }`}
+            >
+              {cat.name}
+            </button>
+          );
+        })}
+      </div>
+
       {/* Interactive Search & Filter Bar */}
       <ModelFilterBar
         filters={filters}
@@ -81,9 +109,9 @@ export function ProfileExplorer({ profiles }: { profiles: Profile[] }) {
         totalProfiles={profiles.length}
       />
 
-      {/* Profiles Output */}
+      {/* Profiles Output Grid with Luxury Proportions */}
       {filteredProfiles.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 sm:gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filteredProfiles.map((profile) => (
             <ProfileCard key={profile.id} profile={profile} />
           ))}

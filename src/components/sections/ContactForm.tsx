@@ -153,6 +153,7 @@ export function ContactForm() {
           <input
             id="phone"
             name="phone"
+            maxLength={10}
             type="tel"
             required
             placeholder="e.g. 9876543210"

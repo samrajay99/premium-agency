@@ -14,7 +14,7 @@ export function BottomStickyBar() {
           <a
             href={siteConfig.phoneHref}
             className="group relative flex flex-1 items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-r from-[#e11d74] via-[#ec4899] to-[#f43f5e] py-3 px-4 text-white shadow-[0_4px_20px_rgba(225,29,116,0.4)] transition-all duration-200 hover:brightness-110 hover:shadow-[0_6px_25px_rgba(225,29,116,0.6)] active:scale-95"
-            aria-label={`Call Agency at ${siteConfig.phone}`}
+            aria-label={`Call VIP Service at ${siteConfig.phone}`}
           >
             {/* Shimmer overlay effect */}
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />

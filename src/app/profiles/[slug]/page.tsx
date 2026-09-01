@@ -11,6 +11,7 @@ import { getProfileBySlug, getProfiles, getRelatedProfiles } from "@/lib/data/pr
 import { getReviewsForProfile } from "@/lib/data/content";
 import { createMetadata } from "@/lib/seo";
 import { CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { JsonLd, profilePersonJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/seo/JsonLd";
 import { ProfileReviewsSection } from "@/components/profiles/ProfileReviewsSection";
 
 export function generateStaticParams() {
@@ -141,6 +142,26 @@ export default async function ProfilePage({ params }: { params: Promise<{ slug: 
           { href: `/categories/${profile.categorySlug}`, label: profile.category },
           { href: "/gallery", label: "View Full Photo Gallery" },
           { href: "/price-list", label: "Price Rates Table" },
+        ]}
+      />
+
+      <JsonLd
+        data={[
+          profilePersonJsonLd({
+            name: profile.name,
+            category: profile.category,
+            area: profile.area,
+            shortDescription: profile.shortDescription,
+            image: profile.image,
+            rating: profile.rating,
+            reviewCount: profile.reviewCount,
+            slug: profile.slug,
+          }),
+          breadcrumbJsonLd([
+            { name: "Profiles", href: "/profiles" },
+            { name: profile.name, href: `/profiles/${profile.slug}` },
+          ]),
+          faqJsonLd(profile.faqs),
         ]}
       />
     </SiteShell>
