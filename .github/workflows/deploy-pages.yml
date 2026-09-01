@@ -30,7 +30,9 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Build static site
-        run: npm run build
+        run: |
+          rm -rf src/app/api
+          npm run build
         env:
           GITHUB_ACTIONS: true
           NEXT_PUBLIC_SITE_URL: https://samrajay99.github.io/premium-agency
