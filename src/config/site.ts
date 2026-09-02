@@ -1,7 +1,23 @@
+const getSiteUrl = (): string => {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (envUrl && envUrl.length > 0) {
+    return envUrl.startsWith("http") ? envUrl : `https://${envUrl}`;
+  }
+  const vercelProdUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (vercelProdUrl && vercelProdUrl.length > 0) {
+    return `https://${vercelProdUrl}`;
+  }
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl && vercelUrl.length > 0) {
+    return `https://${vercelUrl}`;
+  }
+  return "https://hyderabad-elite-directory.vercel.app";
+};
+
 export const siteConfig = {
   siteName: "Best Escorts in Hyderabad",
   shortName: "Best Escorts",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  siteUrl: getSiteUrl(),
   description:
     "Best and Premium Escort/Call Girls Service in Hyderabad | Verified VIP & High Profile Companions across Hyderabad.",
   phone: "9204830058",

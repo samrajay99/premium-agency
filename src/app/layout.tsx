@@ -17,8 +17,13 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const baseSiteUrl =
+  siteConfig.siteUrl && siteConfig.siteUrl.startsWith("http")
+    ? siteConfig.siteUrl
+    : "https://hyderabad-elite-directory.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+  metadataBase: new URL(baseSiteUrl),
   title: {
     default: `${siteConfig.siteName} | #1 VIP Escorts & Call Girls Service in Hyderabad`,
     template: `%s | ${siteConfig.siteName}`,
