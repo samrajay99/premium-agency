@@ -1,15 +1,14 @@
 const getSiteUrl = (): string => {
   const envUrl = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL)?.trim();
   if (envUrl && envUrl.length > 0) {
-    return envUrl.startsWith("http") ? envUrl : `https://${envUrl}`;
-  }
-  const vercelProdUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
-  if (vercelProdUrl && vercelProdUrl.length > 0) {
-    return `https://${vercelProdUrl}`;
-  }
-  const vercelUrl = process.env.VERCEL_URL?.trim();
-  if (vercelUrl && vercelUrl.length > 0) {
-    return `https://${vercelUrl}`;
+    const formatted = envUrl.startsWith("http") ? envUrl : `https://${envUrl}`;
+    if (
+      process.env.NODE_ENV === "production" &&
+      (formatted.includes("localhost") || formatted.includes(".vercel.app"))
+    ) {
+      return "https://www.besthyderabadescortservice.com";
+    }
+    return formatted;
   }
   return "https://www.besthyderabadescortservice.com";
 };
