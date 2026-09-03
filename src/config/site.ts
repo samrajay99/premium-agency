@@ -11,7 +11,7 @@ const getSiteUrl = (): string => {
   if (vercelUrl && vercelUrl.length > 0) {
     return `https://${vercelUrl}`;
   }
-  return "https://hyderabad-elite-directory.vercel.app";
+  return "https://www.besthyderabadescortservice.com";
 };
 
 export const siteConfig = {

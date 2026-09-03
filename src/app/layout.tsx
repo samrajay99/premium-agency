@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 const baseSiteUrl =
   siteConfig.siteUrl && siteConfig.siteUrl.startsWith("http")
     ? siteConfig.siteUrl
-    : "https://hyderabad-elite-directory.vercel.app";
+    : "https://www.besthyderabadescortservice.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseSiteUrl),
@@ -74,6 +74,12 @@ export const metadata: Metadata = {
     ICBM: "17.3850, 78.4867",
     rating: "RTA-5042-1996-1400-1577-RTA",
     "theme-color": "#09090b",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: {
+      "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || "",
+    },
   },
 };
 
