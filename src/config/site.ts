@@ -1,5 +1,5 @@
 const getSiteUrl = (): string => {
-  const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  const envUrl = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL)?.trim();
   if (envUrl && envUrl.length > 0) {
     return envUrl.startsWith("http") ? envUrl : `https://${envUrl}`;
   }
