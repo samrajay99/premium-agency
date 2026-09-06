@@ -31,9 +31,13 @@ export const siteConfig = {
   country: "India",
   tagline: "Discreet & Verified Escort Service in Hyderabad",
   socialLinks: {
-    instagram: "https://instagram.com",
-    x: "https://x.com",
-    facebook: "https://facebook.com",
+    telegram: "https://t.me/besthyderabadescorts",
+    x: "https://x.com/hyderabadescort",
+    instagram: "https://instagram.com/besthyderabadescortservice",
+    facebook: "https://facebook.com/besthyderabadescortservice",
+    reddit: "https://reddit.com/r/HyderabadEscortsVIP",
+    pinterest: "https://pinterest.com/besthyderabadescorts",
+    youtube: "https://youtube.com/@besthyderabadescortservice",
   },
 } as const;
 

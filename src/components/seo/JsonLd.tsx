@@ -25,6 +25,10 @@ export function organizationJsonLd() {
       siteConfig.socialLinks.instagram,
       siteConfig.socialLinks.x,
       siteConfig.socialLinks.facebook,
+      siteConfig.socialLinks.telegram,
+      siteConfig.socialLinks.reddit,
+      siteConfig.socialLinks.pinterest,
+      siteConfig.socialLinks.youtube,
     ],
     address: {
       "@type": "PostalAddress",
@@ -55,7 +59,12 @@ export function websiteJsonLd() {
   };
 }
 
-export function localBusinessJsonLd(customArea?: string) {
+export function localBusinessJsonLd(options?: string | { customArea?: string; latitude?: number; longitude?: number; postalCode?: string }) {
+  const customArea = typeof options === "string" ? options : options?.customArea;
+  const latitude = typeof options === "object" && options?.latitude ? options.latitude : 17.385;
+  const longitude = typeof options === "object" && options?.longitude ? options.longitude : 78.4867;
+  const postalCode = typeof options === "object" && options?.postalCode ? options.postalCode : "500034";
+
   return {
     "@context": "https://schema.org",
     "@type": "AdultEntertainment",
@@ -85,16 +94,16 @@ export function localBusinessJsonLd(customArea?: string) {
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: customArea || "Banjara Hills & Jubilee Hills Hub",
+      streetAddress: customArea ? `${customArea}, Hyderabad` : "Banjara Hills & Jubilee Hills Hub",
       addressLocality: "Hyderabad",
       addressRegion: "Telangana",
-      postalCode: "500034",
+      postalCode,
       addressCountry: "IN",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 17.385,
-      longitude: 78.4867,
+      latitude,
+      longitude,
     },
     areaServed: [
       "Banjara Hills",

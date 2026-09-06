@@ -99,7 +99,12 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       <JsonLd
         data={[
-          localBusinessJsonLd(`${location.name}, Hyderabad`),
+          localBusinessJsonLd({
+            customArea: `${location.name}, Hyderabad`,
+            latitude: location.latitude,
+            longitude: location.longitude,
+            postalCode: location.postalCode,
+          }),
           breadcrumbJsonLd(crumbs),
           faqJsonLd(location.faqs),
         ]}

@@ -5,17 +5,13 @@ import { VisitorTracker } from "@/components/layout/VisitorTracker";
 import { LiveViewerCounter } from "@/components/layout/LiveViewerCounter";
 import { BottomStickyBar } from "@/components/layout/BottomStickyBar";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
-import { SitePreloader } from "@/components/layout/SitePreloader";
 import { siteConfig } from "@/config/site";
 import { Sparkles, Phone, MessageCircle } from "lucide-react";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-grid min-h-screen text-[#fdfdfd]">
-      {/* 1. Luxury Entry Preloader */}
-      <SitePreloader />
-
-      {/* 2. Comprehensive Visitor Analytics Tracker & Age Verification */}
+      {/* 1. Comprehensive Visitor Analytics Tracker & Age Verification */}
       <VisitorTracker />
       <AgeGate />
 

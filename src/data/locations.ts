@@ -14,6 +14,9 @@ export interface DirectoryLocation {
   relatedLocationSlugs: string[];
   relatedCategorySlugs: string[];
   faqs: LocationFaq[];
+  latitude: number;
+  longitude: number;
+  postalCode: string;
 }
 
 export const locations: DirectoryLocation[] = [
@@ -29,6 +32,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["aanya-mehra"],
     relatedLocationSlugs: ["hitech-city", "madhapur", "miyapur"],
     relatedCategorySlugs: ["premium-companionship", "travel-companionship"],
+    latitude: 17.4401,
+    longitude: 78.3489,
+    postalCode: "500032",
     faqs: [
       { question: "Is this a Gachibowli business listing?", answer: "It is a demo location page for local SEO structure, not a registered office." },
       { question: "Which nearby pages should I read?", answer: "HITEC City and Madhapur share the same western corridor and are linked below." },
@@ -46,6 +52,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["diya-kapoor"],
     relatedLocationSlugs: ["hitech-city", "gachibowli", "kukatpally"],
     relatedCategorySlugs: ["premium-companionship", "models"],
+    latitude: 17.4483,
+    longitude: 78.3915,
+    postalCode: "500081",
     faqs: [
       { question: "Why is Madhapur separate from HITEC City?", answer: "They overlap in daily life, but distinct URLs help visitors who search by neighbourhood name." },
     ],
@@ -62,6 +71,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["kiara-nair"],
     relatedLocationSlugs: ["madhapur", "gachibowli", "jubilee-hills"],
     relatedCategorySlugs: ["event-companionship", "models"],
+    latitude: 17.4435,
+    longitude: 78.3772,
+    postalCode: "500081",
     faqs: [
       { question: "Do you have an office in HITEC City?", answer: "This demo has no physical office. Contact details are placeholders." },
     ],
@@ -78,6 +90,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["meera-reddy"],
     relatedLocationSlugs: ["banjara-hills", "hitech-city", "ameerpet"],
     relatedCategorySlugs: ["lifestyle-companionship", "premium-companionship"],
+    latitude: 17.4319,
+    longitude: 78.4073,
+    postalCode: "500033",
     faqs: [
       { question: "Is this a nightlife guide?", answer: "No. It is a directory index with neighbourhood context, not a club guide." },
     ],
@@ -94,6 +109,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["sana-qureshi", "tara-singh"],
     relatedLocationSlugs: ["jubilee-hills", "ameerpet", "secunderabad"],
     relatedCategorySlugs: ["independent-professionals", "event-companionship"],
+    latitude: 17.4156,
+    longitude: 78.435,
+    postalCode: "500034",
     faqs: [
       { question: "Are independent listings employees?", answer: "In this demo, independent is only a category name." },
     ],
@@ -110,6 +128,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["naina-shah"],
     relatedLocationSlugs: ["miyapur", "madhapur", "gachibowli"],
     relatedCategorySlugs: ["travel-companionship", "premium-companionship"],
+    latitude: 17.4849,
+    longitude: 78.4138,
+    postalCode: "500072",
     faqs: [
       { question: "Is Kukatpally only residential?", answer: "It is mixed. The page mentions housing board areas and travel corridors because that is how visitors describe it." },
     ],
@@ -126,6 +147,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["tanvi-iyer"],
     relatedLocationSlugs: ["gachibowli", "madhapur", "miyapur"],
     relatedCategorySlugs: ["premium-companionship", "travel-companionship"],
+    latitude: 17.4699,
+    longitude: 78.3578,
+    postalCode: "500084",
     faqs: [
       { question: "Why is Kondapur separate?", answer: "It is a well-known local search term that often gets grouped with nearby IT zones. A specific page keeps those searches useful." },
     ],
@@ -142,6 +166,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["zara-hussein"],
     relatedLocationSlugs: ["banjara-hills", "jubilee-hills", "secunderabad"],
     relatedCategorySlugs: ["premium-companionship", "lifestyle-companionship"],
+    latitude: 17.4375,
+    longitude: 78.4482,
+    postalCode: "500016",
     faqs: [
       { question: "Why include Ameerpet?", answer: "Many visitors name metro hubs when they search. A dedicated page keeps that query useful without cloning another neighbourhood." },
     ],
@@ -158,6 +185,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["lara-fernandes"],
     relatedLocationSlugs: ["kukatpally", "gachibowli", "madhapur"],
     relatedCategorySlugs: ["event-companionship", "travel-companionship"],
+    latitude: 17.4968,
+    longitude: 78.3614,
+    postalCode: "500049",
     faqs: [
       { question: "Is Miyapur part of the IT corridor?", answer: "It is adjacent. The page treats it as a northwest residential and hospitality node." },
     ],
@@ -174,6 +204,9 @@ export const locations: DirectoryLocation[] = [
     featuredProfileSlugs: ["isha-varma"],
     relatedLocationSlugs: ["banjara-hills", "ameerpet", "jubilee-hills"],
     relatedCategorySlugs: ["independent-professionals", "premium-companionship"],
+    latitude: 17.4399,
+    longitude: 78.4983,
+    postalCode: "500003",
     faqs: [
       { question: "Is Secunderabad the same as Hyderabad?", answer: "They form a metropolitan area, but visitors often search them separately. This page respects that." },
     ],
