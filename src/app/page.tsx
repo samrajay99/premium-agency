@@ -303,8 +303,8 @@ export default function HomePage() {
             Hyderabad&apos;s #1 Elite Service
           </span>
 
-          <h1 className="mt-4 text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.95] tracking-tight text-white font-serif">
-            Escorts Service <span className="text-[#f5b324] block mt-1">Available 24/7</span>
+          <h1 className="mt-4 text-[clamp(2.3rem,6.5vw,5rem)] font-black uppercase leading-[0.95] tracking-tight text-white font-serif">
+            Best Escort Service in Hyderabad <span className="text-[#f5b324] block mt-1">100% Verified VIP Call Girls 24/7</span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-lg font-medium text-zinc-300">

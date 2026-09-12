@@ -198,10 +198,31 @@ export async function POST(req: NextRequest) {
 
     const location = await resolveVisitorLocation(req, ip, timezone);
 
+    const isWhatsApp = action.toLowerCase().includes("whatsapp") || action.toLowerCase().includes("wa.me");
+    const isPhone = action.toLowerCase().includes("phone") || action.toLowerCase().includes("call") || action.toLowerCase().includes("tel:");
     const isAgeGate = action.toLowerCase().includes("18") || action.toLowerCase().includes("age");
-    const subject = isAgeGate
-      ? `🔞 [18+ Verified Visitor] from ${location.formatted} Entered - ${siteConfig.siteName}`
-      : `🌐 [VIP Visitor Alert] New Visit from ${location.formatted} (${url}) - ${siteConfig.siteName}`;
+
+    let subject = `🌐 [VIP Visitor Alert] New Visit from ${location.formatted} (${url}) - ${siteConfig.siteName}`;
+    let badgeColor = "#e11d74";
+    let badgeText = "🌐 Live VIP Website Visitor";
+    let headingText = "New Visitor Active on Website";
+
+    if (isWhatsApp) {
+      subject = `💬 [WHATSAPP MESSAGE LEAD] Customer Messaging on WhatsApp from ${location.formatted} - ${siteConfig.siteName}`;
+      badgeColor = "#22c55e";
+      badgeText = "💬 WhatsApp Inquiry Initiated";
+      headingText = "🚨 User Clicked WhatsApp to Message You!";
+    } else if (isPhone) {
+      subject = `📞 [DIRECT CALL LEAD] Customer Calling from ${location.formatted} - ${siteConfig.siteName}`;
+      badgeColor = "#f5b324";
+      badgeText = "📞 Phone Call Initiated";
+      headingText = "🚨 User Clicked to Call Hotline!";
+    } else if (isAgeGate) {
+      subject = `🔞 [18+ Verified Visitor] from ${location.formatted} Entered - ${siteConfig.siteName}`;
+      badgeColor = "#22c55e";
+      badgeText = "🔞 18+ Age Verified & Granted Access";
+      headingText = "Visitor Confirmed 'I am 18 or older'";
+    }
 
     // Format Campaign / Attribution params if present
     const campaignEntries = Object.entries(campaignParams as Record<string, string>);
@@ -214,7 +235,12 @@ export async function POST(req: NextRequest) {
       : null;
 
     const text = `
-${isAgeGate ? "🔞 VISITOR CONFIRMED 18+ AGE & ENTERED WEBSITE" : "🌐 NEW VISITOR LANDED ON WEBSITE"}
+${isWhatsApp ? "💬 HIGH PRIORITY: USER CLICKED WHATSAPP TO MESSAGE YOU!" : isPhone ? "📞 HIGH PRIORITY: USER CLICKED TO CALL YOU!" : isAgeGate ? "🔞 VISITOR CONFIRMED 18+ AGE & ENTERED WEBSITE" : "🌐 NEW VISITOR LANDED ON WEBSITE"}
+
+🎯 ACTION TAKEN:
+• Event: ${action}
+• Page: ${url}
+• Time (IST): ${new Date(timestamp).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST
 
 📍 GEOLOCATION & ISP INTELLIGENCE:
 • Approx. Location: ${location.formatted}
@@ -239,13 +265,10 @@ ${googleMapsUrl ? `• Map Pin: ${googleMapsUrl}` : ""}
 • Latency (RTT): ${rtt}
 • Data Saver: ${dataSaver}
 
-🎯 VISITOR CONTEXT & ATTRIBUTION:
-• Action: ${action}
-• Time (IST): ${new Date(timestamp).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST
-• Visitor Local Time: ${localTime || "N/A"} (${timezone})
-• Visited Page: ${url}
+🎯 TRAFFIC CONTEXT & ATTRIBUTION:
 • Traffic Source: ${referrer}
 • Campaign Tags: ${campaignText}
+• Visitor Local Time: ${localTime || "N/A"} (${timezone})
 • Languages: ${languages || language}
 • User Agent: ${userAgent}
 
@@ -254,22 +277,22 @@ Management Email: ${siteConfig.email}
     `.trim();
 
     const html = `
-<div style="font-family: Arial, sans-serif; background-color: #0c080d; color: #f4f4f5; padding: 24px; border-radius: 14px; border: 2px solid ${isAgeGate ? "#22c55e" : "#e11d74"}; max-width: 680px; margin: 0 auto;">
+<div style="font-family: Arial, sans-serif; background-color: #0c080d; color: #f4f4f5; padding: 24px; border-radius: 14px; border: 2px solid ${badgeColor}; max-width: 680px; margin: 0 auto;">
   
   <!-- Header Badge -->
   <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-    <div style="display: inline-block; padding: 6px 14px; border-radius: 6px; background-color: ${isAgeGate ? "#22c55e" : "#e11d74"}; color: #ffffff; font-weight: bold; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
-      ${isAgeGate ? "🔞 18+ Age Verified & Granted Access" : "🌐 Live VIP Website Visitor"}
+    <div style="display: inline-block; padding: 6px 14px; border-radius: 6px; background-color: ${badgeColor}; color: #ffffff; font-weight: bold; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+      ${badgeText}
     </div>
     <span style="color: #f5b324; font-size: 12px; font-weight: bold;">${new Date(timestamp).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} IST</span>
   </div>
 
   <h2 style="color: #f5b324; margin: 0 0 8px 0; font-size: 20px; font-weight: bold;">
-    ${isAgeGate ? "Visitor Confirmed 'I am 18 or older'" : "New Visitor Active on Website"}
+    ${headingText}
   </h2>
   
   <p style="color: #d4d4d8; font-size: 14px; margin: 0 0 20px 0;">
-    Captured from <strong>${location.formatted}</strong> on <strong>${siteConfig.siteName}</strong>.
+    Action: <strong style="color: #22c55e;">${action}</strong> captured from <strong>${location.formatted}</strong> on <strong>${siteConfig.siteName}</strong>.
   </p>
 
   <!-- CARD 1: GEOLOCATION & NETWORK -->

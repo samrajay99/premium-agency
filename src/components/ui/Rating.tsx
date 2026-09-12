@@ -10,7 +10,7 @@ export function Rating({ value, count }: { value: number; count?: number }) {
         ))}
       </span>
       <span>{value.toFixed(1)}</span>
-      {typeof count === "number" ? <span className="text-muted">({count} demo)</span> : null}
+      {typeof count === "number" ? <span className="text-muted">({count} reviews)</span> : null}
     </div>
   );
 }

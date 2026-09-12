@@ -5,7 +5,9 @@ export interface DirectoryReview {
   rating: number;
   date: string;
   text: string;
-  verifiedDemo: boolean;
+  verifiedDemo?: boolean;
+  verifiedClient?: boolean;
+  verified?: boolean;
   profileSlug?: string;
   serviceType?: string;
 }

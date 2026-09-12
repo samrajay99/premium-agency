@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { getCategories, getCategoryBySlug } from "@/lib/data/categories";
-import { getProfiles } from "@/lib/data/profiles";
+import { getProfiles, getProfilesByCategory } from "@/lib/data/profiles";
 import { createMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/components/seo/JsonLd";
 
@@ -34,7 +34,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const category = getCategoryBySlug((await params).slug);
   if (!category) notFound();
 
-  const profiles = getProfiles().filter((profile) => profile.categorySlug === category.slug);
+  const catProfiles = getProfilesByCategory(category.slug);
+  // Ensure the user always gets a rich selection of models
+  const profiles = catProfiles.length > 0 ? catProfiles : getProfiles().slice(0, 6);
 
   const crumbs = [
     { name: "Categories", href: "/categories" },

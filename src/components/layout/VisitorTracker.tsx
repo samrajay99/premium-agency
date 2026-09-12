@@ -118,6 +118,44 @@ export function VisitorTracker() {
         setTimeout(sendTracking, 1000);
       }
     }
+
+    // Global listener for WhatsApp and Phone Call clicks anywhere on the site
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement)?.closest("a");
+      if (!target) return;
+
+      const href = target.getAttribute("href") || "";
+      const isWa = href.includes("wa.me") || href.includes("whatsapp.com") || href.includes("api.whatsapp");
+      const isTel = href.startsWith("tel:");
+
+      if (isWa || isTel) {
+        try {
+          const buttonText = target.innerText?.replace(/\s+/g, " ").trim() || "";
+          let actionLabel = isWa
+            ? "💬 User Clicked WhatsApp Message Button"
+            : "📞 User Clicked Direct Phone Call Button";
+
+          if (buttonText) {
+            actionLabel += ` [Button: "${buttonText.slice(0, 60)}"]`;
+          }
+
+          const payload = collectQuickTelemetry(actionLabel);
+          fetch("/api/notify-visit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+            keepalive: true,
+          }).catch(() => {});
+        } catch {
+          // ignore
+        }
+      }
+    };
+
+    document.addEventListener("click", handleGlobalClick, { capture: true });
+    return () => {
+      document.removeEventListener("click", handleGlobalClick, { capture: true });
+    };
   }, [pathname]);
 
   return null;

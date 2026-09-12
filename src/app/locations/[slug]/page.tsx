@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { getLocations, getLocationBySlug } from "@/lib/data/locations";
-import { getProfiles } from "@/lib/data/profiles";
+import { getProfiles, getProfilesByLocation } from "@/lib/data/profiles";
 import { getCategories } from "@/lib/data/categories";
 import { createMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd } from "@/components/seo/JsonLd";
@@ -36,9 +36,13 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   const location = getLocationBySlug((await params).slug);
   if (!location) notFound();
 
-  const profiles = getProfiles().filter((profile) =>
-    location.featuredProfileSlugs.includes(profile.slug)
-  );
+  // Find direct location profiles and explicitly featured ones
+  const locProfiles = getProfilesByLocation(location.slug);
+  const featured = getProfiles().filter((p) => location.featuredProfileSlugs.includes(p.slug));
+  const combined = Array.from(new Set([...locProfiles, ...featured]));
+  // Always provide a rich list of companions so user has immediate choices
+  const profiles = combined.length > 0 ? combined : getProfiles().slice(0, 6);
+
   const categoryNames = getCategories().filter((category) =>
     location.relatedCategorySlugs.includes(category.slug)
   );
@@ -52,7 +56,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     <SiteShell>
       <Breadcrumbs items={crumbs} />
 
-      <p className="eyebrow">Hyderabad Neighbourhood Guide</p>
+      <p className="eyebrow">Hyderabad Neighbourhood Escort Guide</p>
       <h1 className="display-title">{location.title}</h1>
       <p className="lede max-w-3xl">{location.intro}</p>
 
@@ -84,7 +88,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       </section>
 
       <RelatedContent
-        title="Continue exploring other locations"
+        title="Continue exploring other locations &amp; categories"
         links={[
           ...location.relatedLocationSlugs.map((slug) => ({
             href: `/locations/${slug}`,

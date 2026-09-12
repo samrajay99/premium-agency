@@ -15,20 +15,37 @@ export function getFeaturedProfiles(): Profile[] {
 }
 
 export function getProfilesByLocation(locationSlug: string): Profile[] {
-  return profiles.filter((profile) => profile.locationSlug === locationSlug);
+  const normLoc = locationSlug.toLowerCase().trim();
+  const direct = profiles.filter((profile) => profile.locationSlug === normLoc);
+  if (direct.length > 0) return direct;
+
+  return profiles.filter((profile) =>
+    profile.area.toLowerCase().replace(/\s+/g, "-").includes(normLoc) ||
+    profile.tags.some((t) => t.toLowerCase().replace(/\s+/g, "-").includes(normLoc))
+  );
 }
 
 export function getProfilesByCategory(categorySlug: string): Profile[] {
-  return profiles.filter((profile) => profile.categorySlug === categorySlug);
+  const normCat = categorySlug.toLowerCase().trim();
+  const direct = profiles.filter((profile) => profile.categorySlug === normCat);
+  if (direct.length > 0) return direct;
+
+  return profiles.filter((profile) => {
+    const slugInCat = profile.category.toLowerCase().replace(/\s+/g, "-").includes(normCat);
+    const inTags = profile.tags.some((t) => t.toLowerCase().replace(/\s+/g, "-").includes(normCat));
+    const inSpecs = profile.specializations.some((s) => s.toLowerCase().replace(/\s+/g, "-").includes(normCat));
+    return slugInCat || inTags || inSpecs;
+  });
 }
 
-export function getRelatedProfiles(profile: Profile, limit = 3): Profile[] {
+export function getRelatedProfiles(profile: Profile, limit = 4): Profile[] {
   return profiles
     .filter((item) => item.slug !== profile.slug)
     .sort((a, b) => {
       const score = (item: Profile) =>
-        (item.locationSlug === profile.locationSlug ? 2 : 0) +
-        (item.categorySlug === profile.categorySlug ? 2 : 0);
+        (item.locationSlug === profile.locationSlug ? 3 : 0) +
+        (item.categorySlug === profile.categorySlug ? 3 : 0) +
+        (item.priceMin <= profile.priceMax && item.priceMax >= profile.priceMin ? 1 : 0);
       return score(b) - score(a);
     })
     .slice(0, limit);
@@ -45,8 +62,10 @@ export function searchProfiles(query: string): Profile[] {
       profile.category,
       profile.locationSlug,
       profile.shortDescription,
+      profile.description,
       ...profile.tags,
       ...profile.languages,
+      ...profile.specializations,
     ]
       .join(" ")
       .toLowerCase();

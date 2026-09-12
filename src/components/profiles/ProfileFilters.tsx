@@ -82,7 +82,7 @@ export function ProfileFilterFields({
           checked={value.verifiedOnly}
           onChange={(event) => onChange({ ...value, verifiedOnly: event.target.checked })}
         />
-        Demo verified only
+        Verified companions only
       </label>
       <label className="flex items-center gap-2 text-sm">
         <input
