@@ -113,6 +113,12 @@ export function createMetadata({
   return {
     title,
     description,
+    applicationName: siteConfig.siteName,
+    appleWebApp: {
+      title: siteConfig.siteName,
+      capable: true,
+      statusBarStyle: "black-translucent",
+    },
     keywords: combinedKeywords,
     authors: [{ name: siteConfig.siteName, url: siteConfig.siteUrl }],
     creator: siteConfig.siteName,

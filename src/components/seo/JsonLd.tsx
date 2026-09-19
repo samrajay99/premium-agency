@@ -46,6 +46,12 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.siteName,
+    alternateName: [
+      siteConfig.shortName,
+      "Best Escorts in Hyderabad",
+      "Best Hyderabad Escort Service",
+      "Hyderabad Escorts",
+    ],
     url: siteConfig.siteUrl,
     description: siteConfig.description,
     potentialAction: {

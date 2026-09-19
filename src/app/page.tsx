@@ -26,9 +26,9 @@ import { Accordion } from "@/components/ui/Accordion";
 import { HelpCircle } from "lucide-react";
 
 export const metadata = createMetadata({
-  title: "Best Escorts in Hyderabad | #1 VIP Escort Service & Call Girls 24/7",
+  title: "Best Escorts in Hyderabad | #1 VIP Escort Service 24/7",
   description:
-    "#1 Verified Escort Service & Call Girls in Hyderabad. 100% Genuine VIP models, Russian companions & independent escorts in Banjara Hills, Jubilee Hills, HITEC City & Gachibowli. 30-min 5-star hotel outcalls, transparent rates & Cash on Delivery (COD).",
+    "#1 Verified Escort Service & Call Girls in Hyderabad. 100% genuine VIP models & Russian escorts in Banjara Hills & HITEC City. 30-min hotel outcall & COD.",
   pathname: "/",
   keywords: [
     "escort service in hyderabad",

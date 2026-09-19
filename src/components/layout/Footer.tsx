@@ -325,6 +325,63 @@ export function Footer() {
             </ul>
           </div>
         ))}
+
+        {/* 5. Authority External Reference Links for SEO entity trust */}
+        <div className="space-y-3">
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-[#f5b324] border-b border-white/10 pb-2">
+            City Directory
+          </p>
+          <ul className="space-y-2 text-xs sm:text-sm text-zinc-400">
+            <li>
+              <a
+                href="https://maps.google.com/?q=Hyderabad+Telangana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5 transition-colors hover:text-white"
+                title="Hyderabad City Location Map"
+              >
+                <ExternalLink className="size-3 text-[#f5b324]" />
+                <span>Hyderabad Map</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.telanganatourism.gov.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5 transition-colors hover:text-white"
+                title="Telangana Tourism Official Guide"
+              >
+                <ExternalLink className="size-3 text-[#f5b324]" />
+                <span>Telangana Tourism</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://en.wikipedia.org/wiki/Hyderabad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5 transition-colors hover:text-white"
+                title="Hyderabad City History & Landmarks"
+              >
+                <ExternalLink className="size-3 text-[#f5b324]" />
+                <span>Hyderabad Wiki</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.ltmetro.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5 transition-colors hover:text-white"
+                title="Hyderabad Metro Rail Routes"
+              >
+                <ExternalLink className="size-3 text-[#f5b324]" />
+                <span>Metro Transit Guide</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* 6. Emergency Quick Safe Exit & Disclaimer Strip */}
