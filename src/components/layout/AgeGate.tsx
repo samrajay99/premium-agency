@@ -14,25 +14,6 @@ export function AgeGate() {
   const handleAccept = () => {
     window.sessionStorage.setItem("hed-age", "yes");
     setOpen(false);
-
-    // Send instant visit notification on AgeGate confirmation
-    try {
-      fetch("/api/notify-visit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          url: window.location.href,
-          referrer: document.referrer || "Direct Entry",
-          screen: `${window.screen.width}x${window.screen.height}`,
-          action: "User Verified 18+ and Entered Site",
-          timestamp: new Date().toISOString(),
-          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown Timezone",
-          language: navigator.language || "Unknown",
-        }),
-      }).catch((err) => console.warn("AgeGate notify ping error:", err));
-    } catch {
-      // Ignore
-    }
   };
 
   if (!open) return null;

@@ -159,6 +159,30 @@ async function resolveVisitorLocation(
   };
 }
 
+// In-memory deduplication cache to prevent duplicate email notifications
+const recentNotifications = new Map<string, number>();
+
+function checkAndSetDedupe(key: string, cooldownMs: number): boolean {
+  const now = Date.now();
+  const lastSent = recentNotifications.get(key);
+
+  // Periodic cleanup if cache grows
+  if (recentNotifications.size > 2000) {
+    for (const [k, time] of recentNotifications.entries()) {
+      if (now - time > 15 * 60 * 1000) {
+        recentNotifications.delete(k);
+      }
+    }
+  }
+
+  if (lastSent && now - lastSent < cooldownMs) {
+    return true; // Duplicate request within cooldown window
+  }
+
+  recentNotifications.set(key, now);
+  return false;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json().catch(() => ({}));
@@ -196,11 +220,26 @@ export async function POST(req: NextRequest) {
       req.headers.get("x-real-ip") ||
       "Unknown IP";
 
-    const location = await resolveVisitorLocation(req, ip, timezone);
-
     const isWhatsApp = action.toLowerCase().includes("whatsapp") || action.toLowerCase().includes("wa.me");
     const isPhone = action.toLowerCase().includes("phone") || action.toLowerCase().includes("call") || action.toLowerCase().includes("tel:");
     const isAgeGate = action.toLowerCase().includes("18") || action.toLowerCase().includes("age");
+
+    // Deduplicate:
+    // For direct WhatsApp/Phone click leads: 30-second cooldown per IP+action
+    // For page visits & entry pings: 5-minute (300,000ms) cooldown per IP+url
+    const isLeadAction = isWhatsApp || isPhone;
+    const dedupeKey = isLeadAction ? `${ip}:action:${action}` : `${ip}:visit:${url}`;
+    const cooldownMs = isLeadAction ? 30 * 1000 : 5 * 60 * 1000;
+
+    if (checkAndSetDedupe(dedupeKey, cooldownMs)) {
+      return NextResponse.json({
+        success: true,
+        message: "Notification skipped (deduplicated)",
+        deduplicated: true,
+      });
+    }
+
+    const location = await resolveVisitorLocation(req, ip, timezone);
 
     let subject = `🌐 [VIP Visitor Alert] New Visit from ${location.formatted} (${url}) - ${siteConfig.siteName}`;
     let badgeColor = "#e11d74";

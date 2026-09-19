@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 interface VisitorMetadata {
@@ -88,13 +88,22 @@ function collectQuickTelemetry(action = "Page Load / Browse Interaction"): Visit
 
 export function VisitorTracker() {
   const pathname = usePathname();
+  const notifiedPathsRef = useRef<Set<string>>(new Set());
 
   useEffect(() => {
+    if (!pathname) return;
+
+    // In-memory guard to prevent double-firing in StrictMode or fast renders
+    if (notifiedPathsRef.current.has(pathname)) {
+      return;
+    }
+
     const sessionKey = "visit_notified_" + pathname;
     const lastNotified = sessionStorage.getItem(sessionKey);
     const now = Date.now();
 
     if (!lastNotified || now - Number(lastNotified) > 15 * 60 * 1000) {
+      notifiedPathsRef.current.add(pathname);
       sessionStorage.setItem(sessionKey, String(now));
 
       // Defer network notification to browser idle time so user navigation is 100% instantaneous

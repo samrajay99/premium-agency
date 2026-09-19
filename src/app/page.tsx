@@ -26,23 +26,30 @@ import { Accordion } from "@/components/ui/Accordion";
 import { HelpCircle } from "lucide-react";
 
 export const metadata = createMetadata({
-  title: "Best Escorts in Hyderabad | 100% Verified VIP Escort Service 24/7",
+  title: "Best Escorts in Hyderabad | #1 VIP Escort Service & Call Girls 24/7",
   description:
-    "Hyderabad's premier VIP escort service. Explore 100% verified model profiles across Banjara Hills, Jubilee Hills, HITEC City, Gachibowli, Madhapur, and Kukatpally with transparent rates & 30-min 5-star hotel outcalls.",
+    "#1 Verified Escort Service & Call Girls in Hyderabad. 100% Genuine VIP models, Russian companions & independent escorts in Banjara Hills, Jubilee Hills, HITEC City & Gachibowli. 30-min 5-star hotel outcalls, transparent rates & Cash on Delivery (COD).",
   pathname: "/",
   keywords: [
     "escort service in hyderabad",
+    "hyderabad escort service",
+    "escorts in hyderabad",
     "hyderabad escorts",
+    "call girls in hyderabad",
     "hyderabad call girls",
-    "call girls hyderabad",
+    "call girl hyderabad",
+    "hyderabad call girl service",
+    "best escorts in hyderabad",
     "vip escorts in hyderabad",
     "russian escorts hyderabad",
+    "independent call girls in hyderabad",
     "banjara hills escort service",
     "jubilee hills escorts",
     "hitec city escort service",
     "gachibowli escorts",
     "madhapur call girl",
     "5 star hotel outcalls hyderabad",
+    "cash on delivery escorts hyderabad",
   ],
 });
 
