@@ -6,12 +6,15 @@ import { createMetadata } from "@/lib/seo";
 import { JsonLd, faqJsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata = createMetadata({
-  title: "Frequently Asked Questions | Hyderabad Escorts Guide & Booking Terms",
+  title: "Hyderabad Escort Service FAQs | Escorts Service in Hyderabad Guide",
   description:
-    "Get clear answers about our 100% verified escort service in Hyderabad, 30-min 5-star hotel outcalls, rates, COD payment, and complete client privacy.",
+    "Get clear answers about Best Hyderabad Escort Service, 30-min 5-star hotel outcalls, rates, COD payment, and complete client privacy across Hyderabad (Hydrabad).",
   pathname: "/faq",
   keywords: [
     "hyderabad escorts faq",
+    "best hyderabad escort service faq",
+    "escorts service in hyderabad booking",
+    "escorts service in hydrabad faq",
     "how to book escort in hyderabad",
     "hyderabad call girls rates",
     "hotel outcall guide hyderabad",

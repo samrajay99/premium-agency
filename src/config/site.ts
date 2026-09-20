@@ -14,11 +14,11 @@ const getSiteUrl = (): string => {
 };
 
 export const siteConfig = {
-  siteName: "Best Escorts in Hyderabad",
+  siteName: "Best Hyderabad Escort Service",
   shortName: "Best Escorts",
   siteUrl: getSiteUrl(),
   description:
-    "Best and Premium Escort/Call Girls Service in Hyderabad | Verified VIP & High Profile Companions across Hyderabad.",
+    "Best Hyderabad Escort Service & #1 Escorts Service in Hyderabad. 100% verified VIP call girls, Russian models, 30-min 5-star hotel outcall & Cash on Delivery.",
   phone: "9204830058",
   phoneDisplay: "+91 9204830058",
   phoneHref: "tel:+919204830058",

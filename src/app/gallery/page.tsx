@@ -9,11 +9,14 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd, breadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata = createMetadata({
-  title: "VIP Photo Gallery | Best Escorts in Hyderabad",
-  description: "Browse high resolution verified photo gallery of VIP companions and independent escorts in Hyderabad.",
+  title: "VIP Photo Gallery | Best Hyderabad Escort Service Photos",
+  description: "Browse 100% verified real photos of VIP models, Russian companions and call girls from the Best Hyderabad Escort Service.",
   pathname: "/gallery",
   keywords: [
     "hyderabad escorts photos",
+    "best hyderabad escort service gallery",
+    "escorts service in hyderabad photos",
+    "hydrabad escorts service pics",
     "hyderabad call girls photo gallery",
     "verified escorts pics hyderabad",
     "vip escorts gallery hyderabad",

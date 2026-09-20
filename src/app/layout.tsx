@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   title: {
-    default: `${siteConfig.siteName} | #1 VIP Escorts & Call Girls Service in Hyderabad`,
+    default: "Best Hyderabad Escort Service | #1 Escorts Service in Hyderabad 24/7",
     template: `%s | ${siteConfig.siteName}`,
   },
   description: siteConfig.description,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: siteConfig.siteName,
     locale: "en_IN",
-    title: `${siteConfig.siteName} | Hyderabad VIP Escorts`,
+    title: "Best Hyderabad Escort Service | #1 Escorts Service in Hyderabad",
     description: siteConfig.description,
     images: [{ url: "/images/og/default.svg", width: 1200, height: 630, alt: siteConfig.siteName }],
   },

@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
 export const defaultKeywords = [
-  // Primary Core Queries
+  // Primary Core Queries & High Intent Target Keywords
+  "Best Hyderabad escort service",
+  "Best hyderabad escorts service",
   "Hyderabad escort service",
+  "Hyderabad escorts service",
   "Escort service in Hyderabad",
+  "Escorts service in Hyderabad",
   "Escorts in Hyderabad",
   "Hyderabad escorts",
   "Escorts Hyderabad",
@@ -22,6 +26,20 @@ export const defaultKeywords = [
   "Real call girls in Hyderabad",
   "Hyderabad escort agency",
   "Top rated escorts in Hyderabad",
+  
+  // Common Spelling & Phonetic Variations (Hydrabad)
+  "Escorts service in hydrabad",
+  "Hydrabad escorts service",
+  "Hydrabad escort service",
+  "Escort service in hydrabad",
+  "Best hydrabad escort service",
+  "Best escorts in hydrabad",
+  "Hydrabad escorts",
+  "Escorts in hydrabad",
+  "Hydrabad call girls",
+  "Call girls in hydrabad",
+  "Hydrabad call girl service",
+  "VIP escorts in hydrabad",
   
   // Category & Model Type Queries
   "Russian escorts in Hyderabad",
