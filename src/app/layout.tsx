@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   title: {
-    default: "Best Hyderabad Escort Service | #1 Escorts Service in Hyderabad 24/7",
+    default: "Hyderabad Escorts Service & Call girls | ❤️ High Class Escorts",
     template: `%s | ${siteConfig.siteName}`,
   },
   description: siteConfig.description,

@@ -13,6 +13,21 @@ export interface DirectoryReview {
 }
 
 export const reviews: DirectoryReview[] = [
+  // Recent Verified Client Reviews
+  {
+    id: "rev-rohit-shetty-01",
+    name: "Rohit Shetty",
+    location: "Banjara Hills",
+    rating: 5,
+    date: "28 Sep 2026",
+    serviceType: "VIP 5-Star Outcall",
+    text: "I met Riya in person and had a really good experience. She was polite, friendly, and respectful throughout the meeting. Everything was as discussed, and I felt comfortable with her. Overall, it was a pleasant experience and I would be happy to meet her again.",
+    verifiedDemo: true,
+    verifiedClient: true,
+    verified: true,
+    profileSlug: "mahak",
+  },
+
   // 1. MAHAK (Banjara Hills)
   {
     id: "rev-mahak-01",

@@ -26,11 +26,14 @@ import { Accordion } from "@/components/ui/Accordion";
 import { HelpCircle } from "lucide-react";
 
 export const metadata = createMetadata({
-  title: "Best Hyderabad Escort Service | #1 Escorts Service in Hyderabad 24/7",
+  title: "Hyderabad Escorts Service & Call girls | ❤️ High Class Escorts",
   description:
-    "Best Hyderabad Escort Service & #1 Escorts Service in Hyderabad (Hydrabad). 100% verified VIP call girls, Russian models, 30-min 5-star hotel outcall & Cash on Delivery.",
+    "Hyderabad Escorts Service & Call girls | ❤️ High Class Escorts in Hyderabad. 100% verified VIP escorts, high profile models, Russian companions, 30-min 5-star hotel outcalls & cash on delivery.",
   pathname: "/",
   keywords: [
+    "Hyderabad Escorts Service & Call girls",
+    "High Class Escorts",
+    "high class escorts in hyderabad",
     "best hyderabad escort service",
     "best hyderabad escorts service",
     "escorts service in hyderabad",
@@ -323,12 +326,12 @@ export default function HomePage() {
             Hyderabad&apos;s #1 Elite Agency
           </span>
 
-          <h1 className="mt-4 text-[clamp(2.3rem,6.5vw,5rem)] font-black uppercase leading-[0.95] tracking-tight text-white font-serif">
-            Best Hyderabad Escort Service <span className="text-[#f5b324] block mt-1">#1 Escorts Service in Hyderabad 24/7</span>
+          <h1 className="mt-4 text-[clamp(2.1rem,6vw,4.8rem)] font-black uppercase leading-[0.95] tracking-tight text-white font-serif">
+            Hyderabad Escorts Service &amp; Call girls <span className="text-[#f5b324] block mt-1">❤️ High Class Escorts in Hyderabad</span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-lg font-medium text-zinc-300">
-            Welcome to the premier, verified escort &amp; call girls service in Hyderabad (Hydrabad). Book 100% genuine VIP models, Russian companions, and high-profile companions with rapid 30-minute 5-star hotel outcalls and Cash on Delivery (COD).
+            Welcome to the premier, verified escort &amp; call girls service in Hyderabad (Hydrabad). Book 100% genuine VIP models, high class companions, Russian models, and verified companions with rapid 30-minute 5-star hotel outcalls and Cash on Delivery (COD).
           </p>
 
           {/* Quick CTA buttons */}

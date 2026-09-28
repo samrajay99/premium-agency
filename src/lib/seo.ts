@@ -3,6 +3,10 @@ import { siteConfig } from "@/config/site";
 
 export const defaultKeywords = [
   // Primary Core Queries & High Intent Target Keywords
+  "Hyderabad Escorts Service & Call girls",
+  "High Class Escorts",
+  "High class escorts in Hyderabad",
+  "High class escort service Hyderabad",
   "Best Hyderabad escort service",
   "Best hyderabad escorts service",
   "Hyderabad escort service",

@@ -17,6 +17,7 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
   const [rating, setRating] = useState(5);
   const [hoverRating, setHoverRating] = useState(0);
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [companion, setCompanion] = useState("MAHAK (Banjara Hills)");
   const [location, setLocation] = useState("Banjara Hills");
   const [title, setTitle] = useState("");
@@ -45,6 +46,7 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: name || "Verified Client",
+          email: email.trim(),
           rating,
           companion,
           location,
@@ -100,6 +102,11 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
         </h3>
         <p className="text-sm text-zinc-300 max-w-md mx-auto">
           Thank you, <strong className="text-[#f5b324]">{name || "Valued Client"}</strong>. Your valuable review for <strong className="text-white">{companion}</strong> has been received and submitted directly to private management.
+          {email && (
+            <span className="block mt-2 text-xs text-emerald-400 font-medium">
+              ✉️ A VIP confirmation &amp; thank-you email has been dispatched to <strong className="text-white">{email}</strong>.
+            </span>
+          )}
         </p>
         <button
           type="button"
@@ -107,6 +114,7 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
             setSent(false);
             setReview("");
             setTitle("");
+            setEmail("");
           }}
           className="mt-4 inline-flex items-center justify-center rounded-xl bg-white/10 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/20 transition"
         >
@@ -181,9 +189,24 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
           </label>
           <input
             id="client-name"
-            placeholder="e.g. Vikram K. / Rahul"
+            placeholder="e.g. Rohit Shetty"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-[#f5b324] focus:outline-none focus:ring-1 focus:ring-[#f5b324]"
+          />
+        </div>
+
+        {/* Client Email for Auto Follow-up */}
+        <div>
+          <label htmlFor="client-email" className="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-1.5 flex items-center justify-between">
+            <span>Email (For Follow-up / Confirmation)</span>
+          </label>
+          <input
+            id="client-email"
+            type="email"
+            placeholder="e.g. yourname@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-[#f5b324] focus:outline-none focus:ring-1 focus:ring-[#f5b324]"
           />
         </div>
@@ -234,13 +257,13 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
         </div>
 
         {/* Review Title */}
-        <div>
+        <div className="sm:col-span-2">
           <label htmlFor="review-title" className="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-1.5">
-            Review Headline
+            Review Headline (Optional)
           </label>
           <input
             id="review-title"
-            placeholder="e.g. Unmatched beauty & punctuality"
+            placeholder="e.g. Unmatched beauty, respectful & punctual"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-[#f5b324] focus:outline-none focus:ring-1 focus:ring-[#f5b324]"

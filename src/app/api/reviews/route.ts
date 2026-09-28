@@ -1,14 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendNotificationEmail } from "@/lib/mailer";
- import { siteConfig } from "@/config/site";
+import { sendNotificationEmail, sendClientReviewThankYouEmail } from "@/lib/mailer";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-dynamic";
+
+// Simple helper to extract email if entered anywhere in fields
+function extractEmail(...fields: (string | undefined)[]): string | null {
+  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/i;
+  for (const field of fields) {
+    if (field && typeof field === "string") {
+      const match = field.match(emailRegex);
+      if (match) return match[1].trim();
+    }
+  }
+  return null;
+}
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const {
       name = "Verified Client",
+      email = "",
       rating = 5,
       companion = "General Service",
       location = "Hyderabad",
@@ -23,6 +36,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Detect client email if provided in explicit field or entered in title/name
+    const clientEmail = extractEmail(email, title, name, review);
+
     const starString = "★".repeat(Number(rating)) + "☆".repeat(Math.max(0, 5 - Number(rating)));
 
     const subject = `⭐ New Client Review (${rating}/5 Stars) from ${name} for ${companion} - ${siteConfig.siteName}`;
@@ -30,6 +46,7 @@ export async function POST(req: NextRequest) {
 You have received a new Client Review on your website:
 
 • Client Name / Alias: ${name}
+• Client Email: ${clientEmail || "Not provided (Anonymous)"}
 • Star Rating: ${rating} / 5 (${starString})
 • Companion Availed: ${companion}
 • Location / City: ${location}, Hyderabad
@@ -52,6 +69,14 @@ Website: ${siteConfig.siteUrl}
       <td style="padding: 10px 0; color: #a1a1aa; width: 160px;">Client Name:</td>
       <td style="padding: 10px 0; color: #ffffff; font-weight: bold; font-size: 16px;">${name}</td>
     </tr>
+    ${
+      clientEmail
+        ? `<tr style="border-bottom: 1px solid #27272a;">
+      <td style="padding: 10px 0; color: #a1a1aa;">Client Email:</td>
+      <td style="padding: 10px 0; color: #38bdf8; font-weight: bold;"><a href="mailto:${clientEmail}" style="color: #38bdf8; text-decoration: none;">${clientEmail}</a></td>
+    </tr>`
+        : ""
+    }
     <tr style="border-bottom: 1px solid #27272a;">
       <td style="padding: 10px 0; color: #a1a1aa;">Star Rating:</td>
       <td style="padding: 10px 0; color: #f5b324; font-weight: bold; font-size: 18px;">
@@ -85,11 +110,30 @@ Website: ${siteConfig.siteUrl}
 </div>
     `.trim();
 
+    // 1. Send notification to agency management
     await sendNotificationEmail({ subject, text, html });
+
+    // 2. If client email is available, automatically dispatch thank you follow-up message
+    if (clientEmail) {
+      try {
+        await sendClientReviewThankYouEmail({
+          to: clientEmail,
+          clientName: name,
+          companion,
+          rating: Number(rating),
+        });
+        console.log(`✉️ Automated thank-you follow-up email dispatched to: ${clientEmail}`);
+      } catch (clientEmailErr) {
+        console.error("Failed to send client thank-you auto-reply:", clientEmailErr);
+      }
+    }
 
     return NextResponse.json({
       success: true,
-      message: "Thank you for your valuable review! Your feedback has been sent directly to management.",
+      autoReplySent: Boolean(clientEmail),
+      message: clientEmail
+        ? "Thank you for your valuable review! A confirmation follow-up has been sent to your email."
+        : "Thank you for your valuable review! Your feedback has been sent directly to management.",
     });
   } catch (error) {
     console.error("Review submission API error:", error);
