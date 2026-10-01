@@ -20,15 +20,15 @@ import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/components/seo/JsonLd
 export const metadata = createMetadata({
   title: "Hyderabad Escort Service Price List & Rates | Best Rates 24/7",
   description:
-    "Transparent escort service price list & rates in Hyderabad (Hydrabad). Genuine rates, 100% Cash on Delivery (COD), 30-min hotel outcalls & zero advance fee.",
+    "Transparent escort service price list & rates in Hyderabad. Genuine rates, 100% Cash on Delivery (COD), 30-min hotel outcalls & zero advance fee.",
   pathname: "/price-list",
   keywords: [
     "hyderabad escorts price list",
     "hyderabad escort service price list",
     "best hyderabad escort service rates",
     "escorts service in hyderabad charges",
-    "escort service in hydrabad price",
-    "hydrabad escorts price list",
+    "escort service in Hyderabad price",
+    "Hyderabad escorts price list",
     "hyderabad call girls rates",
     "escort service charges hyderabad",
     "cheap escorts hyderabad rates",

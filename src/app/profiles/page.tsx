@@ -9,13 +9,13 @@ import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/components/seo/JsonLd
 export const metadata = createMetadata({
   title: "Hyderabad Escort Service Profiles | Verified Escorts & Call Girls",
   description:
-    "Browse 100% verified VIP escorts, Russian models, celebrity companions, and independent call girls in Hyderabad (Hydrabad). Rapid 30-min 5-star hotel outcalls with COD.",
+    "Browse 100% verified VIP escorts, Russian models, celebrity companions, and independent call girls in Hyderabad. Rapid 30-min 5-star hotel outcalls with COD.",
   pathname: "/profiles",
   keywords: [
     "hyderabad escorts profiles",
     "best hyderabad escort service models",
     "escorts service in hyderabad directory",
-    "hydrabad escorts service profiles",
+    "Hyderabad escorts service profiles",
     "verified call girls hyderabad",
     "vip escort directory hyderabad",
     "russian models hyderabad",

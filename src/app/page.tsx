@@ -39,22 +39,24 @@ export const metadata = createMetadata({
     "escorts service in hyderabad",
     "escort service in hyderabad",
     "hyderabad escorts service",
-    "hyderabad escort service",
-    "escorts service in hydrabad",
-    "hydrabad escorts service",
-    "hydrabad escort service",
-    "escort service in hydrabad",
-    "best hydrabad escort service",
-    "escorts in hyderabad",
-    "hyderabad escorts",
-    "escorts in hydrabad",
-    "hydrabad escorts",
-    "call girls in hyderabad",
-    "call girls in hydrabad",
-    "hyderabad call girls",
-    "hydrabad call girls",
-    "call girl hyderabad",
-    "hyderabad call girl service",
+    "Hyderabad escort service",
+    "escort service Hyderabad",
+    "escort service in Hyderabad",
+    "best Hyderabad escort service",
+    "best Hyderabad escorts service",
+    "escorts in Hyderabad",
+    "Hyderabad escorts",
+    "escorts in Hyderabad",
+    "Hyderabad escorts",
+    "call girls in Hyderabad",
+    "call girls in Hyderabad",
+    "Hyderabad call girls",
+    "Hyderabad call girls",
+    "call girl Hyderabad",
+    "Hyderabad call girl",
+    "Hyderabad call girl service",
+    "call girls in Hyderabad",
+    "Escort service Hyderabad",
     "best escorts in hyderabad",
     "vip escorts in hyderabad",
     "russian escorts hyderabad",
@@ -331,7 +333,7 @@ export default function HomePage() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-lg font-medium text-zinc-300">
-            Welcome to the premier, verified escort &amp; call girls service in Hyderabad (Hydrabad). Book 100% genuine VIP models, high class companions, Russian models, and verified companions with rapid 30-minute 5-star hotel outcalls and Cash on Delivery (COD).
+            Welcome to the premier, verified escort &amp; call girls service in Hyderabad. Book 100% genuine VIP models, high class companions, Russian models, and verified companions with rapid 30-minute 5-star hotel outcalls and Cash on Delivery (COD).
           </p>
 
           {/* Quick CTA buttons */}
@@ -809,7 +811,7 @@ export default function HomePage() {
               PREMIER <span className="text-[#f5b324]">ESCORT SERVICE IN HYDERABAD</span>
             </h2>
             <p className="text-sm sm:text-base text-zinc-300">
-              Your ultimate guide to booking verified, high-profile companionship with 100% confidentiality across Hyderabad (Hydrabad).
+              Your ultimate guide to booking verified, high-profile companionship with 100% confidentiality across Hyderabad.
             </p>
           </div>
 
@@ -828,7 +830,7 @@ export default function HomePage() {
 
             <div className="space-y-4">
               <h3 className="font-serif text-lg sm:text-xl font-bold uppercase text-[#e11d74]">
-                Rapid 30-Minute 5-Star Hotel Outcalls Across Hyderabad (Hydrabad)
+                Rapid 30-Minute 5-Star Hotel Outcalls Across Hyderabad
               </h3>
               <p>
                 Our <strong>Hyderabad escorts service</strong> operates a seamless 24/7 outcall network connecting directly to all luxury hotels and private residences. With models stationed near key hubs like Jubilee Hills, Gachibowli, Madhapur, Begumpet, and Somajiguda, we ensure dispatch within 25 to 35 minutes.
@@ -844,7 +846,7 @@ export default function HomePage() {
               100% Cash on Delivery (COD) &amp; Zero Advance Scam Protection
             </h3>
             <p>
-              Online scams and advance fee requests are unfortunately common on unreliable classified sites. We take a firm stand against fraud: our <strong>escorts service in hydrabad</strong> requires <strong>zero advance payment</strong>. You only pay after you meet your verified companion in person at your venue. We accept Cash on Delivery (COD) as well as instant UPI transfers (Google Pay, PhonePe, Paytm).
+              Online scams and advance fee requests are unfortunately common on unreliable classified sites. We take a firm stand against fraud: our <strong>escorts service in Hyderabad</strong> requires <strong>zero advance payment</strong>. You only pay after you meet your verified companion in person at your venue. We accept Cash on Delivery (COD) as well as instant UPI transfers (Google Pay, PhonePe, Paytm).
             </p>
             <div className="grid sm:grid-cols-3 gap-3 pt-2">
               <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
@@ -887,13 +889,13 @@ export default function HomePage() {
                 id: "faq-01",
                 question: "How do I book the best Hyderabad escort service?",
                 answer:
-                  "Booking our Hyderabad escort service is fast, simple, and completely discreet. Browse our verified model profiles, choose your preferred companion, and click the direct Call (+91 9204830058) or WhatsApp (+91 6264420408) button. Our 24/7 concierge will immediately confirm availability and arrange a rapid 30-minute outcall to your 5-star hotel room or private venue.",
+                  "Booking our Hyderabad escort service is fast, simple, and completely discreet. Browse our verified model profiles, choose your preferred companion, and click the direct Call (+91 9204830058) or WhatsApp (+91 9204876499) button. Our 24/7 concierge will immediately confirm availability and arrange a rapid 30-minute outcall to your 5-star hotel room or private venue.",
               },
               {
                 id: "faq-02",
                 question: "Why is our agency rated the #1 escorts service in Hyderabad?",
                 answer:
-                  "We are rated the #1 escorts service in Hyderabad (Hydrabad) because we provide 100% verified original photographs, zero advance payment requirements, strict client confidentiality, and rapid 25–30 minute dispatch across all prime areas including Banjara Hills, Jubilee Hills, HITEC City, and Gachibowli.",
+                  "We are rated the #1 escorts service in Hyderabad because we provide 100% verified original photographs, zero advance payment requirements, strict client confidentiality, and rapid 25–30 minute dispatch across all prime areas including Banjara Hills, Jubilee Hills, HITEC City, and Gachibowli.",
               },
               {
                 id: "faq-03",
@@ -903,7 +905,7 @@ export default function HomePage() {
               },
               {
                 id: "faq-04",
-                question: "Which areas in Hyderabad (Hydrabad) do you serve with 30-minute outcalls?",
+                question: "Which areas in Hyderabad do you serve with 30-minute outcalls?",
                 answer:
                   "We cover all major upscale neighborhoods in Hyderabad including Banjara Hills, Jubilee Hills, HITEC City, Gachibowli, Madhapur, Kukatpally, Begumpet, Somajiguda, Kondapur, Secunderabad, and Shamshabad Airport Area, servicing all prominent 5-star luxury hotels like Taj Krishna, ITC Kohenur, Park Hyatt, Novotel, Sheraton, and The Westin.",
               },
@@ -932,7 +934,7 @@ export default function HomePage() {
             {
               question: "How do I book the best Hyderabad escort service?",
               answer:
-                "Browse our verified model profiles and contact our 24/7 VIP concierge directly via Call (+91 9204830058) or WhatsApp (+91 6264420408) for rapid 30-minute 5-star hotel outcall dispatch in Hyderabad.",
+                "Browse our verified model profiles and contact our 24/7 VIP concierge directly via Call (+91 9204830058) or WhatsApp (+91 9204876499) for rapid 30-minute 5-star hotel outcall dispatch in Hyderabad.",
             },
             {
               question: "Why is our agency rated the #1 escorts service in Hyderabad?",
@@ -945,7 +947,7 @@ export default function HomePage() {
                 "Yes. Every companion undergoes a strict verification protocol ensuring 100% authentic, real photos.",
             },
             {
-              question: "Which areas in Hyderabad (Hydrabad) do you serve with 30-minute outcalls?",
+              question: "Which areas in Hyderabad do you serve with 30-minute outcalls?",
               answer:
                 "Banjara Hills, Jubilee Hills, HITEC City, Gachibowli, Madhapur, Kukatpally, Begumpet, Somajiguda, Kondapur, Secunderabad, and Manikonda.",
             },

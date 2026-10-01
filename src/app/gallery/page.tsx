@@ -16,7 +16,7 @@ export const metadata = createMetadata({
     "hyderabad escorts photos",
     "best hyderabad escort service gallery",
     "escorts service in hyderabad photos",
-    "hydrabad escorts service pics",
+    "Hyderabad escorts service pics",
     "hyderabad call girls photo gallery",
     "verified escorts pics hyderabad",
     "vip escorts gallery hyderabad",
