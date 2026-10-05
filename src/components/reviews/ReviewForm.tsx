@@ -127,7 +127,7 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-[#f5b324]/30 bg-[#141418] p-6 sm:p-8 shadow-2xl space-y-5"
+      className="rounded-3xl border border-[#f5b324]/30 bg-[#141418] p-4 sm:p-8 shadow-2xl space-y-5"
     >
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#f5b324]">
@@ -150,32 +150,34 @@ export function ReviewForm({ onReviewSubmitted }: { onReviewSubmitted?: (newRevi
       )}
 
       {/* Interactive Star Rating Selector */}
-      <div className="rounded-2xl border border-white/10 bg-black/50 p-4 space-y-2">
+      <div className="rounded-2xl border border-white/10 bg-black/50 p-3.5 sm:p-4 space-y-2.5">
         <label className="block text-xs font-bold uppercase tracking-wider text-zinc-300">
           Your Overall Rating <span className="text-[#e11d74]">*</span>
         </label>
-        <div className="flex items-center gap-2">
-          {[1, 2, 3, 4, 5].map((star) => {
-            const active = (hoverRating || rating) >= star;
-            return (
-              <button
-                key={star}
-                type="button"
-                onClick={() => setRating(star)}
-                onMouseEnter={() => setHoverRating(star)}
-                onMouseLeave={() => setHoverRating(0)}
-                className="transition-transform hover:scale-125 focus:outline-none"
-                aria-label={`${star} Stars`}
-              >
-                <Star
-                  className={`size-7 sm:size-8 transition-colors ${
-                    active ? "text-[#f5b324] fill-[#f5b324] drop-shadow-[0_0_10px_rgba(245,179,36,0.6)]" : "text-zinc-600"
-                  }`}
-                />
-              </button>
-            );
-          })}
-          <span className="ml-3 text-xs sm:text-sm font-black uppercase tracking-wide text-[#f5b324]">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {[1, 2, 3, 4, 5].map((star) => {
+              const active = (hoverRating || rating) >= star;
+              return (
+                <button
+                  key={star}
+                  type="button"
+                  onClick={() => setRating(star)}
+                  onMouseEnter={() => setHoverRating(star)}
+                  onMouseLeave={() => setHoverRating(0)}
+                  className="transition-transform hover:scale-125 focus:outline-none p-0.5"
+                  aria-label={`${star} Stars`}
+                >
+                  <Star
+                    className={`size-7 sm:size-8 transition-colors ${
+                      active ? "text-[#f5b324] fill-[#f5b324] drop-shadow-[0_0_10px_rgba(245,179,36,0.6)]" : "text-zinc-600"
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </div>
+          <span className="text-xs sm:text-sm font-black uppercase tracking-wide text-[#f5b324] leading-tight break-words">
             {ratingLabels[hoverRating || rating]}
           </span>
         </div>

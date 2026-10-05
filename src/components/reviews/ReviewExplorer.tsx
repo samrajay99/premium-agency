@@ -28,7 +28,7 @@ export function ReviewExplorer({ reviews: initialReviews }: { reviews: Directory
   return (
     <div className="space-y-12">
       {/* Review Submission Form Section */}
-      <div className="rounded-3xl border border-[#f5b324]/20 bg-gradient-to-b from-[#18151c] to-[#0f0e13] p-6 sm:p-8 shadow-2xl">
+      <div className="rounded-3xl border border-[#f5b324]/20 bg-gradient-to-b from-[#18151c] to-[#0f0e13] p-4 sm:p-8 shadow-2xl">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
             <div className="flex size-10 items-center justify-center rounded-xl bg-[#f5b324]/15 text-[#f5b324]">
