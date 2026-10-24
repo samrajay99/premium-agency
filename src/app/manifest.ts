@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${siteConfig.siteName} | VIP Escorts in Hyderabad`,
+    name: siteConfig.siteName,
     short_name: siteConfig.shortName,
     description: siteConfig.description,
     start_url: "/",
@@ -15,6 +15,11 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en-IN",
     categories: ["lifestyle", "entertainment"],
     icons: [
+      {
+        src: "/favicon.png",
+        sizes: "192x192 512x512",
+        type: "image/png",
+      },
       {
         src: "/favicon.svg",
         sizes: "any",

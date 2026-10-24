@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: siteConfig.siteName,
     locale: "en_IN",
-    title: "Best Hyderabad Escort Service | #1 Escorts Service in Hyderabad",
+    title: `${siteConfig.siteName} | #1 Escorts Service in Hyderabad`,
     description: siteConfig.description,
     images: [{ url: "/images/og/default.svg", width: 1200, height: 630, alt: siteConfig.siteName }],
   },
@@ -56,11 +56,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.jpeg", type: "image/jpeg" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.jpeg" },
     ],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    shortcut: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,

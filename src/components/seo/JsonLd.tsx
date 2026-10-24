@@ -47,6 +47,10 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     name: siteConfig.siteName,
     alternateName: [
+      "Hyderabad Escorts Services",
+      "VIP Call Girls",
+      "Hyderabad Escorts Services | VIP Call Girls",
+      "Hyderabad Escorts",
       "Best Hyderabad Escort Service",
       "Escorts Service in Hyderabad",
       "Hyderabad Escorts Service",

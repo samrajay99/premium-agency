@@ -14,17 +14,17 @@ const getSiteUrl = (): string => {
 };
 
 export const siteConfig = {
-  siteName: "Best Hyderabad Escort Service",
-  shortName: "Best Escorts",
+  siteName: "Hyderabad Escorts Services | VIP Call Girls",
+  shortName: "Hyderabad Escorts",
   siteUrl: getSiteUrl(),
   description:
-    "Best Hyderabad Escort Service & #1 Escorts Service in Hyderabad. 100% verified VIP call girls, Russian models, 30-min 5-star hotel outcall & Cash on Delivery.",
+    "Hyderabad Escorts Services | VIP Call Girls. 100% verified VIP call girls, Russian models, 30-min 5-star hotel outcall & Cash on Delivery.",
   phone: "9204830058",
   phoneDisplay: "+91 9204830058",
   phoneHref: "tel:+919204830058",
-  whatsapp: "9204876499",
-  whatsappDisplay: "+91 9204876499",
-  whatsappHref: "https://wa.me/919204876499?text=Hello,%20I%20would%20like%20to%20book%20a%20profile",
+  whatsapp: "9082515883",
+  whatsappDisplay: "+91 9082515883",
+  whatsappHref: "https://wa.me/919082515883?text=Hello,%20I%20would%20like%20to%20book%20a%20profile",
   email: "hello.escorts.service@gmail.com",
   city: "Hyderabad",
   region: "Telangana",

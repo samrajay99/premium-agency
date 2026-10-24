@@ -889,7 +889,7 @@ export default function HomePage() {
                 id: "faq-01",
                 question: "How do I book the best Hyderabad escort service?",
                 answer:
-                  "Booking our Hyderabad escort service is fast, simple, and completely discreet. Browse our verified model profiles, choose your preferred companion, and click the direct Call (+91 9204830058) or WhatsApp (+91 9204876499) button. Our 24/7 concierge will immediately confirm availability and arrange a rapid 30-minute outcall to your 5-star hotel room or private venue.",
+                  "Booking our Hyderabad escort service is fast, simple, and completely discreet. Browse our verified model profiles, choose your preferred companion, and click the direct Call (+91 9204830058) or WhatsApp (+91 9082515883) button. Our 24/7 concierge will immediately confirm availability and arrange a rapid 30-minute outcall to your 5-star hotel room or private venue.",
               },
               {
                 id: "faq-02",
@@ -934,7 +934,7 @@ export default function HomePage() {
             {
               question: "How do I book the best Hyderabad escort service?",
               answer:
-                "Browse our verified model profiles and contact our 24/7 VIP concierge directly via Call (+91 9204830058) or WhatsApp (+91 9204876499) for rapid 30-minute 5-star hotel outcall dispatch in Hyderabad.",
+                "Browse our verified model profiles and contact our 24/7 VIP concierge directly via Call (+91 9204830058) or WhatsApp (+91 9082515883) for rapid 30-minute 5-star hotel outcall dispatch in Hyderabad.",
             },
             {
               question: "Why is our agency rated the #1 escorts service in Hyderabad?",
